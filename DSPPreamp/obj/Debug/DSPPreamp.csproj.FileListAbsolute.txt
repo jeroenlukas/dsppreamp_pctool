@@ -1,0 +1,13 @@
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\bin\Debug\DSPPreamp.exe.config
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\bin\Debug\DSPPreamp.exe
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\bin\Debug\DSPPreamp.pdb
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.csprojAssemblyReference.cache
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.Form1.resources
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.Properties.Resources.resources
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.csproj.GenerateResource.cache
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.csproj.CoreCompileInputs.cache
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.exe
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.pdb
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\bin\Debug\KnobControl.pdb
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.csproj.CopyComplete
+C:\Users\Jeroen\OneDrive\DIY\Elektronica\DSPPreamp\software\pctool\DSPPreamp\obj\Debug\DSPPreamp.frmLog.resources
