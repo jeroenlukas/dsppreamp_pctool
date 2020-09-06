@@ -25,7 +25,7 @@ namespace DSPPreamp
             public const int LOG_MESSAGE = 9;
         }
 
-        static class PatchProperties
+        public static class PatchProperties
         {
             public const int PATCH_NAME = 1;
             public const int MODEL = 2;
@@ -38,7 +38,7 @@ namespace DSPPreamp
             public const int NOISE_GATE = 9;
         }
 
-        static class ModelProperties
+        public static class ModelProperties
         {
             public const int NAME = 1;
             public const int CHANNEL = 2;
@@ -49,13 +49,19 @@ namespace DSPPreamp
             public const int DSPDISTORTION_BYPASS = 20;
             public const int DSPDISTORTION_ALPHA = 21;
             public const int DSPDISTORTION_GAIN = 22;
+            public const int DSPDISTORTION_ASYMMETRY = 23;
             public const int DSPDISTORTION_VOLUME = 24;
             public const int ANALOG_BYPASS = 30;
+
+            public const int POSTGAIN_MID_Q = 50;
+            public const int POSTGAIN_MID_FREQ = 51;
         }
 
         //public struct frame { byte command; byte length; byte[] payload; };
 
         frmLog formLog;
+        frmModels formModels;
+        frmPatches formPatches;
         stateMachine smComm = stateMachine.Idle;
 
         //public frame received_frame = new frame();
@@ -88,7 +94,7 @@ namespace DSPPreamp
             serialPort.Write(data, 0, 5 + length);
         }
 
-        private void setCurrentPatchValue(byte property, byte value)
+        public void setCurrentPatchValue(byte property, byte value)
         {
             byte[] data = new byte[3];
             data[0] = 255;
@@ -97,7 +103,7 @@ namespace DSPPreamp
             sendCommand(Commands.SET_PATCH_VALUE, 3, data);
         }
 
-        private void setCurrentModelValue(byte property, byte value)
+        public void setCurrentModelValue(byte property, byte value)
         {
             byte[] data = new byte[3];
             data[0] = 255;
@@ -105,7 +111,8 @@ namespace DSPPreamp
             data[2] = value; // should be two bytes
             sendCommand(Commands.SET_MODEL_VALUE, 3, data);
         }
-        private void setCurrentModelValueInt(byte property, int value)
+
+        public void setCurrentModelValueInt(byte property, int value)
         {
             byte[] data = new byte[4];
             data[0] = 255;
@@ -115,18 +122,25 @@ namespace DSPPreamp
             sendCommand(Commands.SET_MODEL_VALUE, 4, data);
         }
 
-        private void knobControl1_ValueChanged(object Sender)
-        {           
-            setCurrentPatchValue(PatchProperties.GAIN, (byte)knobGain.Value);
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             formLog = new frmLog();
-            //formLog.Location.Y = this.Location.Y + this.Height + 10;
+            formLog.MdiParent = this;
             formLog.Show();
-            formLog.SetDesktopLocation(this.DesktopLocation.X, this.DesktopLocation.Y + this.Height);
-            formLog.Width = this.Width;
+
+            formModels = new frmModels();
+            formModels.MdiParent = this;
+            formModels.MyParent = this;
+            formModels.Show();
+
+            formPatches = new frmPatches();
+            formPatches.MdiParent = this;
+            formPatches.MyParent = this;
+            formPatches.Show();
+
+            
+            
             
             formLog.logMessage("dspPreamp", Color.Black);
 
@@ -142,17 +156,6 @@ namespace DSPPreamp
         {
             serialPort.Close();
         }
-
-        private void knobLow_ValueChanged(object Sender)
-        {
-            setCurrentPatchValue(PatchProperties.LOW, (byte)knobLow.Value);
-        }
-
-        private void knobMid_ValueChanged(object Sender)
-        {
-            setCurrentPatchValue(PatchProperties.MID, (byte)knobMid.Value);
-        }
-
 
 
         private void parseCommand()
@@ -222,74 +225,6 @@ namespace DSPPreamp
             }
             
         }
-
-        private void knobControl6_ValueChanged(object Sender)
-        {
-            setCurrentPatchValue(PatchProperties.VOLUME, (byte)knobVolume.Value);
-        }
-
-        private void cbPostgainBypass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbPostgainBypass.Checked)
-            {
-                setCurrentModelValue(ModelProperties.POSTGAIN_BYPASS, 1);
-            }
-            else setCurrentModelValue(ModelProperties.POSTGAIN_BYPASS, 0);
-        }
-
-        private void knobControl4_ValueChanged(object Sender)
-        {
-            setCurrentPatchValue(PatchProperties.HIGH, (byte)knobHigh.Value);
-        }
-
-        private void cbDSPDistortionBypass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbDSPDistortionBypass.Checked)
-            {
-                setCurrentModelValue(ModelProperties.DSPDISTORTION_BYPASS, 1);
-            }
-            else setCurrentModelValue(ModelProperties.DSPDISTORTION_BYPASS, 0);
-        }
-
-   
-
-        private void nudDSPDistortionAlpha_ValueChanged(object sender, EventArgs e)
-        {
-            setCurrentModelValue(ModelProperties.DSPDISTORTION_ALPHA, Convert.ToByte((nudDSPDistortionAlpha.Value * 10)));
-        }
-
-        private void nudDSPDistortionGain_ValueChanged(object sender, EventArgs e)
-        {
-            setCurrentModelValue(ModelProperties.DSPDISTORTION_GAIN, Convert.ToByte(nudDSPDistortionGain.Value));
-        }
-
-        private void nudDSPDistortionVolume_ValueChanged(object sender, EventArgs e)
-        {
-            setCurrentModelValue(ModelProperties.DSPDISTORTION_VOLUME, Convert.ToByte(nudDSPDistortionVolume.Value*-1));
-        }
-
-        private void cbAnalogBypass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbAnalogBypass.Checked)
-            {
-                setCurrentModelValue(ModelProperties.ANALOG_BYPASS, 1);
-            }
-            else setCurrentModelValue(ModelProperties.ANALOG_BYPASS, 0);
-        }
-
-        private void knobPresence_VisibleChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void knobPresence_ValueChanged(object Sender)
-        {
-            setCurrentPatchValue(PatchProperties.PRES, (byte)knobPresence.Value);
-        }
-
-        private void nudPregainLowcut_ValueChanged(object sender, EventArgs e)
-        {
-            setCurrentModelValueInt(ModelProperties.PREGAIN_LOWCUT, Convert.ToInt16(nudPregainLowcut.Value));
-        }
+       
     }
 }

@@ -1,0 +1,8 @@
+
+.vs/DSPPreamp/v15/
+
+DSPPreamp/bin/Debug/
+
+*.cache
+
+DSPPreamp/obj/Debug/
