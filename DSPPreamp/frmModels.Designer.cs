@@ -211,7 +211,7 @@
             // 
             this.nudDSPDistortionGain.Location = new System.Drawing.Point(73, 30);
             this.nudDSPDistortionGain.Maximum = new decimal(new int[] {
-            48,
+            72,
             0,
             0,
             0});

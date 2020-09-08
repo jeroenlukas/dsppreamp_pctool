@@ -167,6 +167,13 @@ namespace DSPPreamp
 
                 formLog.logMessage("[dsppreamp] " + result + "\r\n", Color.Blue);
             }
+            if(frame_command == Commands.SET_PATCH_VALUE)
+            {
+                //if(frame_payload[0] == PatchProperties.GAIN)
+                //{                    
+                    formPatches.setKnob(frame_payload[0], frame_payload[1]);
+                //}
+            }
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
