@@ -44,7 +44,7 @@ namespace DSPPreamp
 
         private void nudDSPDistortionGain_ValueChanged(object sender, EventArgs e)
         {
-            MyParent.setCurrentModelValue(Form1.ModelProperties.DSPDISTORTION_GAIN, Convert.ToByte(nudDSPDistortionGain.Value));
+            MyParent.setCurrentModelValue(Form1.ModelProperties.DSPDISTORTION_GAIN, Convert.ToByte(nudDSPDistortionGainMin.Value));
         }
 
         private void nudDSPDistortionVolume_ValueChanged(object sender, EventArgs e)
@@ -84,6 +84,16 @@ namespace DSPPreamp
         private void nudPostgainMidFreq_ValueChanged(object sender, EventArgs e)
         {
             MyParent.setCurrentModelValueInt(Form1.ModelProperties.POSTGAIN_MID_FREQ, Convert.ToInt16(nudPostgainMidFreq.Value));
+        }
+
+        private void lbModels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbModelNo.Text = (lbModels.SelectedIndex + 1).ToString();
+        }
+
+        private void btnStore_Click(object sender, EventArgs e)
+        {
+            MyParent.storeCurrentModel();
         }
     }
 }

@@ -44,5 +44,10 @@ namespace DSPPreamp
             }
             //rtbLog.AppendText("[" + DateTime.Now.ToString() + "] " + text + "\n");
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            rtbLog.Clear();
+        }
     }
 }

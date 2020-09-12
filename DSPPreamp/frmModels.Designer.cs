@@ -36,36 +36,27 @@
             this.label25 = new System.Windows.Forms.Label();
             this.nudDSPDistortionVolume = new System.Windows.Forms.NumericUpDown();
             this.label24 = new System.Windows.Forms.Label();
-            this.nudDSPDistortionGain = new System.Windows.Forms.NumericUpDown();
+            this.nudDSPDistortionGainMin = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
             this.nudDSPDistortionAlpha = new System.Windows.Forms.NumericUpDown();
             this.cbDSPDistortionBypass = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.nudPostPresenceMax = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
-            this.nudPostgainPresenceMin = new System.Windows.Forms.NumericUpDown();
+            this.nudPostPresenceMin = new System.Windows.Forms.NumericUpDown();
             this.cbPostgainBypass = new System.Windows.Forms.CheckBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.nudPostgainMidQ = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.nudPostMidGainMin = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.nudPostgainMidFreq = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbAnalogBypass = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbAnalogChannel = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbPreGainBypass = new System.Windows.Forms.CheckBox();
@@ -74,29 +65,51 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nudPregainLowcut = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.btnStore = new System.Windows.Forms.Button();
+            this.tbModelName = new System.Windows.Forms.TextBox();
+            this.lbModels = new System.Windows.Forms.ListBox();
+            this.tbModelNo = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.nudInputZ = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.nudDSPDistortionGainMax = new System.Windows.Forms.NumericUpDown();
+            this.nudPostMidGainMax = new System.Windows.Forms.NumericUpDown();
+            this.nudPostHighGainMax = new System.Windows.Forms.NumericUpDown();
+            this.nudPostHighGainMin = new System.Windows.Forms.NumericUpDown();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nudPostLowGainMax = new System.Windows.Forms.NumericUpDown();
+            this.nudPostLowGainMin = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionVolume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAlpha)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostgainPresenceMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostgainMidQ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostgainMidFreq)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPregainLowcut)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInputZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMin)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.nudDSPDistortionGainMax);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.nudDSPDistortionAsymmetry);
             this.groupBox4.Controls.Add(this.label2);
@@ -104,13 +117,13 @@
             this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.nudDSPDistortionVolume);
             this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.nudDSPDistortionGain);
+            this.groupBox4.Controls.Add(this.nudDSPDistortionGainMin);
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.nudDSPDistortionAlpha);
             this.groupBox4.Controls.Add(this.cbDSPDistortionBypass);
             this.groupBox4.Location = new System.Drawing.Point(370, 61);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 199);
+            this.groupBox4.Size = new System.Drawing.Size(207, 199);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "DSP Distortion";
@@ -160,7 +173,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(160, 32);
+            this.label1.Location = new System.Drawing.Point(177, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 7;
@@ -207,28 +220,28 @@
             this.label24.TabIndex = 4;
             this.label24.Text = "Gain:";
             // 
-            // nudDSPDistortionGain
+            // nudDSPDistortionGainMin
             // 
-            this.nudDSPDistortionGain.Location = new System.Drawing.Point(73, 30);
-            this.nudDSPDistortionGain.Maximum = new decimal(new int[] {
+            this.nudDSPDistortionGainMin.Location = new System.Drawing.Point(73, 30);
+            this.nudDSPDistortionGainMin.Maximum = new decimal(new int[] {
             72,
             0,
             0,
             0});
-            this.nudDSPDistortionGain.Minimum = new decimal(new int[] {
+            this.nudDSPDistortionGainMin.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudDSPDistortionGain.Name = "nudDSPDistortionGain";
-            this.nudDSPDistortionGain.Size = new System.Drawing.Size(83, 20);
-            this.nudDSPDistortionGain.TabIndex = 3;
-            this.nudDSPDistortionGain.Value = new decimal(new int[] {
+            this.nudDSPDistortionGainMin.Name = "nudDSPDistortionGainMin";
+            this.nudDSPDistortionGainMin.Size = new System.Drawing.Size(45, 20);
+            this.nudDSPDistortionGainMin.TabIndex = 3;
+            this.nudDSPDistortionGainMin.Value = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.nudDSPDistortionGain.ValueChanged += new System.EventHandler(this.nudDSPDistortionGain_ValueChanged);
+            this.nudDSPDistortionGainMin.ValueChanged += new System.EventHandler(this.nudDSPDistortionGain_ValueChanged);
             // 
             // label23
             // 
@@ -282,52 +295,52 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.numericUpDown7);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.nudPostLowGainMax);
+            this.groupBox3.Controls.Add(this.nudPostLowGainMin);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.nudPostHighGainMax);
+            this.groupBox3.Controls.Add(this.nudPostHighGainMin);
+            this.groupBox3.Controls.Add(this.nudPostMidGainMax);
+            this.groupBox3.Controls.Add(this.nudPostPresenceMax);
             this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.nudPostgainPresenceMin);
+            this.groupBox3.Controls.Add(this.nudPostPresenceMin);
             this.groupBox3.Controls.Add(this.cbPostgainBypass);
-            this.groupBox3.Controls.Add(this.comboBox5);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.nudPostgainMidQ);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.numericUpDown5);
+            this.groupBox3.Controls.Add(this.nudPostMidGainMin);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.numericUpDown4);
-            this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.nudPostgainMidFreq);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.comboBox4);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Location = new System.Drawing.Point(769, 61);
+            this.groupBox3.Location = new System.Drawing.Point(776, 65);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(511, 351);
+            this.groupBox3.Size = new System.Drawing.Size(293, 302);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Post-gain";
             // 
-            // numericUpDown7
+            // nudPostPresenceMax
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(259, 275);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
+            this.nudPostPresenceMax.Location = new System.Drawing.Point(176, 261);
+            this.nudPostPresenceMax.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown7.Minimum = new decimal(new int[] {
+            this.nudPostPresenceMax.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown7.TabIndex = 26;
-            this.numericUpDown7.Value = new decimal(new int[] {
+            this.nudPostPresenceMax.Name = "nudPostPresenceMax";
+            this.nudPostPresenceMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostPresenceMax.TabIndex = 26;
+            this.nudPostPresenceMax.Value = new decimal(new int[] {
             4000,
             0,
             0,
@@ -336,29 +349,29 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(7, 277);
+            this.label26.Location = new System.Drawing.Point(10, 263);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(85, 13);
             this.label26.TabIndex = 25;
             this.label26.Text = "Presence range:";
             // 
-            // nudPostgainPresenceMin
+            // nudPostPresenceMin
             // 
-            this.nudPostgainPresenceMin.Location = new System.Drawing.Point(111, 275);
-            this.nudPostgainPresenceMin.Maximum = new decimal(new int[] {
+            this.nudPostPresenceMin.Location = new System.Drawing.Point(114, 261);
+            this.nudPostPresenceMin.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.nudPostgainPresenceMin.Minimum = new decimal(new int[] {
+            this.nudPostPresenceMin.Minimum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.nudPostgainPresenceMin.Name = "nudPostgainPresenceMin";
-            this.nudPostgainPresenceMin.Size = new System.Drawing.Size(120, 20);
-            this.nudPostgainPresenceMin.TabIndex = 24;
-            this.nudPostgainPresenceMin.Value = new decimal(new int[] {
+            this.nudPostPresenceMin.Name = "nudPostPresenceMin";
+            this.nudPostPresenceMin.Size = new System.Drawing.Size(56, 20);
+            this.nudPostPresenceMin.TabIndex = 24;
+            this.nudPostPresenceMin.Value = new decimal(new int[] {
             4000,
             0,
             0,
@@ -376,28 +389,14 @@
             this.cbPostgainBypass.UseVisualStyleBackColor = false;
             this.cbPostgainBypass.CheckedChanged += new System.EventHandler(this.cbPostgainBypass_CheckedChanged);
             // 
-            // comboBox5
-            // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "2nd order",
-            "4th order",
-            "6th order",
-            "1st order"});
-            this.comboBox5.Location = new System.Drawing.Point(111, 212);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(120, 21);
-            this.comboBox5.TabIndex = 22;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 215);
+            this.label16.Location = new System.Drawing.Point(10, 201);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 13);
+            this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 21;
-            this.label16.Text = "High cut order:";
+            this.label16.Text = "High gain:";
             // 
             // nudPostgainMidQ
             // 
@@ -407,7 +406,7 @@
             0,
             0,
             65536});
-            this.nudPostgainMidQ.Location = new System.Drawing.Point(111, 140);
+            this.nudPostgainMidQ.Location = new System.Drawing.Point(114, 126);
             this.nudPostgainMidQ.Maximum = new decimal(new int[] {
             20,
             0,
@@ -422,7 +421,7 @@
             this.nudPostgainMidQ.Size = new System.Drawing.Size(120, 20);
             this.nudPostgainMidQ.TabIndex = 20;
             this.nudPostgainMidQ.Value = new decimal(new int[] {
-            4,
+            2,
             0,
             0,
             0});
@@ -431,7 +430,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(7, 142);
+            this.label17.Location = new System.Drawing.Point(10, 128);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(38, 13);
             this.label17.TabIndex = 19;
@@ -440,29 +439,29 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(238, 117);
+            this.label14.Location = new System.Drawing.Point(241, 103);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(20, 13);
             this.label14.TabIndex = 18;
             this.label14.Text = "dB";
             // 
-            // numericUpDown5
+            // nudPostMidGainMin
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(111, 115);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.nudPostMidGainMin.Location = new System.Drawing.Point(114, 101);
+            this.nudPostMidGainMin.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.numericUpDown5.Minimum = new decimal(new int[] {
+            this.nudPostMidGainMin.Minimum = new decimal(new int[] {
             20,
             0,
             0,
             -2147483648});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown5.TabIndex = 17;
-            this.numericUpDown5.Value = new decimal(new int[] {
+            this.nudPostMidGainMin.Name = "nudPostMidGainMin";
+            this.nudPostMidGainMin.Size = new System.Drawing.Size(56, 20);
+            this.nudPostMidGainMin.TabIndex = 17;
+            this.nudPostMidGainMin.Value = new decimal(new int[] {
             10,
             0,
             0,
@@ -471,51 +470,16 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 117);
+            this.label15.Location = new System.Drawing.Point(10, 103);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(50, 13);
             this.label15.TabIndex = 16;
             this.label15.Text = "Mid gain:";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(256, 193);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Hz";
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(111, 186);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown4.TabIndex = 14;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 186);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 13);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "High frequency:";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(238, 91);
+            this.label10.Location = new System.Drawing.Point(241, 77);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 13);
             this.label10.TabIndex = 12;
@@ -528,7 +492,7 @@
             0,
             0,
             0});
-            this.nudPostgainMidFreq.Location = new System.Drawing.Point(111, 89);
+            this.nudPostgainMidFreq.Location = new System.Drawing.Point(114, 75);
             this.nudPostgainMidFreq.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -547,76 +511,18 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 91);
+            this.label11.Location = new System.Drawing.Point(10, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 13);
             this.label11.TabIndex = 10;
             this.label11.Text = "Mid frequency:";
             // 
-            // comboBox4
-            // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "2nd order",
-            "4th order",
-            "6th order",
-            "1st order"});
-            this.comboBox4.Location = new System.Drawing.Point(111, 44);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(120, 21);
-            this.comboBox4.TabIndex = 9;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Low cut order:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(238, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Hz";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(111, 18);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 1;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Low frequency:";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cbAnalogBypass);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cbAnalogChannel);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(576, 61);
+            this.groupBox2.Location = new System.Drawing.Point(583, 65);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(187, 100);
             this.groupBox2.TabIndex = 12;
@@ -635,19 +541,19 @@
             this.cbAnalogBypass.UseVisualStyleBackColor = false;
             this.cbAnalogBypass.CheckedChanged += new System.EventHandler(this.cbAnalogBypass_CheckedChanged);
             // 
-            // comboBox2
+            // cbAnalogChannel
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbAnalogChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAnalogChannel.FormattingEnabled = true;
+            this.cbAnalogChannel.Items.AddRange(new object[] {
             "Channel 1",
             "Channel 2",
             "Channel 3",
             "Channel 4"});
-            this.comboBox2.Location = new System.Drawing.Point(81, 29);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(87, 21);
-            this.comboBox2.TabIndex = 6;
+            this.cbAnalogChannel.Location = new System.Drawing.Point(81, 29);
+            this.cbAnalogChannel.Name = "cbAnalogChannel";
+            this.cbAnalogChannel.Size = new System.Drawing.Size(87, 21);
+            this.cbAnalogChannel.TabIndex = 6;
             // 
             // label3
             // 
@@ -748,29 +654,30 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Low cut frequency:";
             // 
-            // button1
+            // btnStore
             // 
-            this.button1.Location = new System.Drawing.Point(1205, 418);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Store";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStore.Location = new System.Drawing.Point(994, 373);
+            this.btnStore.Name = "btnStore";
+            this.btnStore.Size = new System.Drawing.Size(75, 23);
+            this.btnStore.TabIndex = 16;
+            this.btnStore.Text = "Store";
+            this.btnStore.UseVisualStyleBackColor = true;
+            this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
             // 
-            // textBox2
+            // tbModelName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(138, 12);
-            this.textBox2.MaxLength = 8;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(223, 29);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.Text = "FenderTw";
+            this.tbModelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelName.Location = new System.Drawing.Point(205, 12);
+            this.tbModelName.MaxLength = 8;
+            this.tbModelName.Name = "tbModelName";
+            this.tbModelName.Size = new System.Drawing.Size(223, 29);
+            this.tbModelName.TabIndex = 15;
+            this.tbModelName.Text = "FenderTw";
             // 
-            // listBox2
+            // lbModels
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Items.AddRange(new object[] {
+            this.lbModels.FormattingEnabled = true;
+            this.lbModels.Items.AddRange(new object[] {
             "M01 FenderTw",
             "M02 JC120",
             "M03 JVM100",
@@ -781,19 +688,258 @@
             "M08",
             "M09",
             "M10"});
-            this.listBox2.Location = new System.Drawing.Point(12, 12);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 355);
-            this.listBox2.TabIndex = 14;
+            this.lbModels.Location = new System.Drawing.Point(12, 12);
+            this.lbModels.Name = "lbModels";
+            this.lbModels.Size = new System.Drawing.Size(120, 355);
+            this.lbModels.TabIndex = 14;
+            this.lbModels.SelectedIndexChanged += new System.EventHandler(this.lbModels_SelectedIndexChanged);
+            // 
+            // tbModelNo
+            // 
+            this.tbModelNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelNo.Location = new System.Drawing.Point(141, 12);
+            this.tbModelNo.MaxLength = 8;
+            this.tbModelNo.Name = "tbModelNo";
+            this.tbModelNo.ReadOnly = true;
+            this.tbModelNo.Size = new System.Drawing.Size(58, 29);
+            this.tbModelNo.TabIndex = 38;
+            this.tbModelNo.Text = "001";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.nudInputZ);
+            this.groupBox5.Location = new System.Drawing.Point(141, 194);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(223, 100);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Input";
+            // 
+            // nudInputZ
+            // 
+            this.nudInputZ.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudInputZ.Location = new System.Drawing.Point(111, 35);
+            this.nudInputZ.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudInputZ.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudInputZ.Name = "nudInputZ";
+            this.nudInputZ.Size = new System.Drawing.Size(68, 20);
+            this.nudInputZ.TabIndex = 2;
+            this.nudInputZ.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(185, 37);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "kOhm";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(7, 37);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Input impedance:";
+            // 
+            // nudDSPDistortionGainMax
+            // 
+            this.nudDSPDistortionGainMax.Location = new System.Drawing.Point(126, 30);
+            this.nudDSPDistortionGainMax.Maximum = new decimal(new int[] {
+            72,
+            0,
+            0,
+            0});
+            this.nudDSPDistortionGainMax.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudDSPDistortionGainMax.Name = "nudDSPDistortionGainMax";
+            this.nudDSPDistortionGainMax.Size = new System.Drawing.Size(45, 20);
+            this.nudDSPDistortionGainMax.TabIndex = 11;
+            this.nudDSPDistortionGainMax.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // nudPostMidGainMax
+            // 
+            this.nudPostMidGainMax.Location = new System.Drawing.Point(176, 100);
+            this.nudPostMidGainMax.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostMidGainMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostMidGainMax.Name = "nudPostMidGainMax";
+            this.nudPostMidGainMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostMidGainMax.TabIndex = 27;
+            this.nudPostMidGainMax.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudPostHighGainMax
+            // 
+            this.nudPostHighGainMax.Location = new System.Drawing.Point(176, 198);
+            this.nudPostHighGainMax.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostHighGainMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostHighGainMax.Name = "nudPostHighGainMax";
+            this.nudPostHighGainMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostHighGainMax.TabIndex = 29;
+            this.nudPostHighGainMax.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudPostHighGainMin
+            // 
+            this.nudPostHighGainMin.Location = new System.Drawing.Point(114, 199);
+            this.nudPostHighGainMin.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostHighGainMin.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostHighGainMin.Name = "nudPostHighGainMin";
+            this.nudPostHighGainMin.Size = new System.Drawing.Size(56, 20);
+            this.nudPostHighGainMin.TabIndex = 28;
+            this.nudPostHighGainMin.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(241, 200);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(20, 13);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "dB";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(241, 263);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(20, 13);
+            this.label22.TabIndex = 31;
+            this.label22.Text = "Hz";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(241, 30);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "dB";
+            // 
+            // nudPostLowGainMax
+            // 
+            this.nudPostLowGainMax.Location = new System.Drawing.Point(176, 28);
+            this.nudPostLowGainMax.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostLowGainMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostLowGainMax.Name = "nudPostLowGainMax";
+            this.nudPostLowGainMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostLowGainMax.TabIndex = 34;
+            this.nudPostLowGainMax.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudPostLowGainMin
+            // 
+            this.nudPostLowGainMin.Location = new System.Drawing.Point(114, 29);
+            this.nudPostLowGainMin.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostLowGainMin.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostLowGainMin.Name = "nudPostLowGainMin";
+            this.nudPostLowGainMin.Size = new System.Drawing.Size(56, 20);
+            this.nudPostLowGainMin.TabIndex = 33;
+            this.nudPostLowGainMin.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 31);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 13);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Low gain:";
             // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 459);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.listBox2);
+            this.ClientSize = new System.Drawing.Size(1079, 412);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.tbModelNo);
+            this.Controls.Add(this.btnStore);
+            this.Controls.Add(this.tbModelName);
+            this.Controls.Add(this.lbModels);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -806,22 +952,29 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionVolume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAlpha)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostgainPresenceMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostgainMidQ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostgainMidFreq)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPregainLowcut)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudInputZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -833,36 +986,27 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.NumericUpDown nudDSPDistortionVolume;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.NumericUpDown nudDSPDistortionGain;
+        private System.Windows.Forms.NumericUpDown nudDSPDistortionGainMin;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.NumericUpDown nudDSPDistortionAlpha;
         private System.Windows.Forms.CheckBox cbDSPDistortionBypass;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
+        private System.Windows.Forms.NumericUpDown nudPostPresenceMax;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.NumericUpDown nudPostgainPresenceMin;
+        private System.Windows.Forms.NumericUpDown nudPostPresenceMin;
         private System.Windows.Forms.CheckBox cbPostgainBypass;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown nudPostgainMidQ;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown nudPostMidGainMin;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown nudPostgainMidFreq;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox cbAnalogBypass;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbAnalogChannel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbPreGainBypass;
@@ -871,12 +1015,27 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudPregainLowcut;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button btnStore;
+        private System.Windows.Forms.TextBox tbModelName;
+        private System.Windows.Forms.ListBox lbModels;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nudDSPDistortionAsymmetry;
+        private System.Windows.Forms.TextBox tbModelNo;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.NumericUpDown nudInputZ;
+        private System.Windows.Forms.NumericUpDown nudDSPDistortionGainMax;
+        private System.Windows.Forms.NumericUpDown nudPostMidGainMax;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.NumericUpDown nudPostHighGainMax;
+        private System.Windows.Forms.NumericUpDown nudPostHighGainMin;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown nudPostLowGainMax;
+        private System.Windows.Forms.NumericUpDown nudPostLowGainMin;
+        private System.Windows.Forms.Label label13;
     }
 }

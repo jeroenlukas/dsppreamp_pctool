@@ -36,8 +36,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadModelFromEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storeModelToEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +63,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem,
-            this.windowsToolStripMenuItem});
+            this.windowsToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -80,6 +84,12 @@
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "&View";
             // 
+            // windowsToolStripMenuItem
+            // 
+            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.windowsToolStripMenuItem.Text = "&Windows";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
@@ -88,11 +98,27 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // windowsToolStripMenuItem
+            // testToolStripMenuItem
             // 
-            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
-            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.windowsToolStripMenuItem.Text = "&Windows";
+            this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadModelFromEEPROMToolStripMenuItem,
+            this.storeModelToEEPROMToolStripMenuItem});
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.testToolStripMenuItem.Text = "&Test";
+            // 
+            // loadModelFromEEPROMToolStripMenuItem
+            // 
+            this.loadModelFromEEPROMToolStripMenuItem.Name = "loadModelFromEEPROMToolStripMenuItem";
+            this.loadModelFromEEPROMToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.loadModelFromEEPROMToolStripMenuItem.Text = "Load Model from EEPROM...";
+            this.loadModelFromEEPROMToolStripMenuItem.Click += new System.EventHandler(this.loadModelFromEEPROMToolStripMenuItem_Click);
+            // 
+            // storeModelToEEPROMToolStripMenuItem
+            // 
+            this.storeModelToEEPROMToolStripMenuItem.Name = "storeModelToEEPROMToolStripMenuItem";
+            this.storeModelToEEPROMToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.storeModelToEEPROMToolStripMenuItem.Text = "Store Model to EEPROM...";
             // 
             // Form1
             // 
@@ -126,6 +152,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadModelFromEEPROMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem storeModelToEEPROMToolStripMenuItem;
     }
 }
 

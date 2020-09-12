@@ -21,8 +21,12 @@ namespace DSPPreamp
             public const int SET_MODEL_VALUE = 3;
             public const int SET_PATCH_VALUE = 4;
             public const int GET_SYSTEM_VLAUE = 5;
+            public const int STORE_CURRENT_MODEL = 6;
+            public const int STORE_CURRENT_PATCH = 7;
+            public const int MIDI_RECEIVED = 8;
 
             public const int LOG_MESSAGE = 9;
+            public const int SELECT_PATCH = 10;
         }
 
         public static class PatchProperties
@@ -122,6 +126,35 @@ namespace DSPPreamp
             sendCommand(Commands.SET_MODEL_VALUE, 4, data);
         }
 
+        public void setCurrentPatchValueString(byte property, string value)
+        {
+            byte[] data = new byte[24];
+            data[0] = 255;
+            data[1] = property;
+            int i;
+            for (i = 0; i < value.Length; i++)
+                data[2 + i] = Convert.ToByte(value[i]);
+
+            data[2+i] = 0;
+            //data[2] = Convert.ToByte((value >> 8) & 0xff); // should be two bytes
+            //data[3] = Convert.ToByte(value & 0xff);
+            sendCommand(Commands.SET_PATCH_VALUE,  Convert.ToByte(value.Length + 2 + 1), data);
+        }
+
+        public void storeCurrentModel()
+        {
+            byte[] data = new byte[1];
+            data[0] = 255;
+            sendCommand(Commands.STORE_CURRENT_MODEL, 1, data);
+        }
+
+        public void selectPatch(byte patch_no)
+        {
+            byte[] data = new byte[1];
+            data[0] = patch_no;
+            sendCommand(Commands.SELECT_PATCH, 1, data);
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -169,10 +202,24 @@ namespace DSPPreamp
             }
             if(frame_command == Commands.SET_PATCH_VALUE)
             {
-                //if(frame_payload[0] == PatchProperties.GAIN)
-                //{                    
+                if(frame_payload[0] == PatchProperties.PATCH_NAME)
+                {
+                    string patchName = System.Text.Encoding.UTF8.GetString(frame_payload, 1, 9) + "\0";
+                    
+                    formPatches.setName(patchName);
+                }
+                else if(frame_payload[0] == PatchProperties.MODEL)
+                {
+                    formPatches.setModel(frame_payload[1]);
+                }
+                else
+                {                    
                     formPatches.setKnob(frame_payload[0], frame_payload[1]);
-                //}
+                }
+            }
+            if(frame_command == Commands.SELECT_PATCH)
+            {
+                formPatches.selectPatch(frame_payload[0]);
             }
         }
 
@@ -232,6 +279,10 @@ namespace DSPPreamp
             }
             
         }
-       
+
+        private void loadModelFromEEPROMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
