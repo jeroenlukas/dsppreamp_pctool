@@ -114,7 +114,7 @@ namespace DSPPreamp
                 {
                     valueChangedExternally = true;
                     lbPatches.SelectedIndex = patchNo;
-                    tbPatchNo.Text = (patchNo + 1).ToString();
+                    tbPatchNo.Text = (patchNo + 1).ToString().PadLeft(3, '0');
                     valueChangedExternally = false;
                 });
             }
@@ -122,7 +122,7 @@ namespace DSPPreamp
             {
                 valueChangedExternally = true;
                 lbPatches.SelectedIndex = patchNo;
-                tbPatchNo.Text = (patchNo + 1).ToString();
+                tbPatchNo.Text = (patchNo + 1).ToString().PadLeft(3, '0');
                 valueChangedExternally = false;
             }
             
@@ -130,6 +130,7 @@ namespace DSPPreamp
 
         public void setModel(int model_id)
         {
+            valueChangedExternally = true;
             if (model_id < cbModel.Items.Count)
             {
                 if (this.cbModel.InvokeRequired)
@@ -148,16 +149,19 @@ namespace DSPPreamp
                     valueChangedExternally = false;
                 }
             }
+            valueChangedExternally = false;
+
         }
 
         private void btnStore_Click(object sender, EventArgs e)
         {
-            MyParent.storeCurrentModel();
+            MyParent.storeCurrentPatch();
         }
 
         private void cbModel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!valueChangedExternally)
+            
+            if (!valueChangedExternally && cbModel.Focused)
                 MyParent.setCurrentPatchValue(Form1.PatchProperties.MODEL, (byte)cbModel.SelectedIndex);
         }
 
@@ -174,6 +178,21 @@ namespace DSPPreamp
         {
             if(!valueChangedExternally)
                 MyParent.selectPatch(Convert.ToByte(lbPatches.SelectedIndex));
+        }
+
+        private void frmPatches_Load(object sender, EventArgs e)
+        {            
+            lbPatches.Items.Clear();
+            for (int i = 0; i < 100; i++)
+            {
+                lbPatches.Items.Add("P" + (i+1).ToString().PadLeft(3, '0'));
+            }
+
+            cbModel.Items.Clear();
+            for(int i = 0; i < 10; i++)
+            {
+                cbModel.Items.Add("M" + (i + 1).ToString().PadLeft(2, '0'));
+            }
         }
     }
 }

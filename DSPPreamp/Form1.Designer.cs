@@ -37,10 +37,17 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelFromEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeModelToEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.patchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.disableUSBTransmitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutgoingCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +71,8 @@
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.windowsToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.testToolStripMenuItem,
+            this.systemToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -90,14 +98,6 @@
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.windowsToolStripMenuItem.Text = "&Windows";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1364, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -119,6 +119,69 @@
             this.storeModelToEEPROMToolStripMenuItem.Name = "storeModelToEEPROMToolStripMenuItem";
             this.storeModelToEEPROMToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.storeModelToEEPROMToolStripMenuItem.Text = "Store Model to EEPROM...";
+            // 
+            // systemToolStripMenuItem
+            // 
+            this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initializeToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.disableUSBTransmitToolStripMenuItem,
+            this.logOutgoingCommandsToolStripMenuItem});
+            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.systemToolStripMenuItem.Text = "&System";
+            // 
+            // initializeToolStripMenuItem
+            // 
+            this.initializeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patchesToolStripMenuItem,
+            this.modelsToolStripMenuItem});
+            this.initializeToolStripMenuItem.Name = "initializeToolStripMenuItem";
+            this.initializeToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.initializeToolStripMenuItem.Text = "Initialize...";
+            // 
+            // patchesToolStripMenuItem
+            // 
+            this.patchesToolStripMenuItem.Name = "patchesToolStripMenuItem";
+            this.patchesToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.patchesToolStripMenuItem.Text = "Patches";
+            this.patchesToolStripMenuItem.Click += new System.EventHandler(this.patchesToolStripMenuItem_Click);
+            // 
+            // modelsToolStripMenuItem
+            // 
+            this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
+            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.modelsToolStripMenuItem.Text = "Models";
+            this.modelsToolStripMenuItem.Click += new System.EventHandler(this.modelsToolStripMenuItem_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1364, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(206, 6);
+            // 
+            // disableUSBTransmitToolStripMenuItem
+            // 
+            this.disableUSBTransmitToolStripMenuItem.CheckOnClick = true;
+            this.disableUSBTransmitToolStripMenuItem.Name = "disableUSBTransmitToolStripMenuItem";
+            this.disableUSBTransmitToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.disableUSBTransmitToolStripMenuItem.Text = "Disable USB transmit";
+            // 
+            // logOutgoingCommandsToolStripMenuItem
+            // 
+            this.logOutgoingCommandsToolStripMenuItem.Checked = true;
+            this.logOutgoingCommandsToolStripMenuItem.CheckOnClick = true;
+            this.logOutgoingCommandsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.logOutgoingCommandsToolStripMenuItem.Name = "logOutgoingCommandsToolStripMenuItem";
+            this.logOutgoingCommandsToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.logOutgoingCommandsToolStripMenuItem.Text = "Log outgoing commands";
             // 
             // Form1
             // 
@@ -155,6 +218,13 @@
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadModelFromEEPROMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem storeModelToEEPROMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem initializeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem patchesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem disableUSBTransmitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutgoingCommandsToolStripMenuItem;
     }
 }
 

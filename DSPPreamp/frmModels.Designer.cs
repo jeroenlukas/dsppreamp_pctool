@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.nudDSPDistortionGainMax = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.nudDSPDistortionAsymmetry = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +42,15 @@
             this.nudDSPDistortionAlpha = new System.Windows.Forms.NumericUpDown();
             this.cbDSPDistortionBypass = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nudPostLowGainMax = new System.Windows.Forms.NumericUpDown();
+            this.nudPostLowGainMin = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.nudPostHighGainMax = new System.Windows.Forms.NumericUpDown();
+            this.nudPostHighGainMin = new System.Windows.Forms.NumericUpDown();
+            this.nudPostMidGainMax = new System.Windows.Forms.NumericUpDown();
             this.nudPostPresenceMax = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
             this.nudPostPresenceMin = new System.Windows.Forms.NumericUpDown();
@@ -70,25 +80,21 @@
             this.lbModels = new System.Windows.Forms.ListBox();
             this.tbModelNo = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.nudInputZ = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.nudDSPDistortionGainMax = new System.Windows.Forms.NumericUpDown();
-            this.nudPostMidGainMax = new System.Windows.Forms.NumericUpDown();
-            this.nudPostHighGainMax = new System.Windows.Forms.NumericUpDown();
-            this.nudPostHighGainMin = new System.Windows.Forms.NumericUpDown();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.nudPostLowGainMax = new System.Windows.Forms.NumericUpDown();
-            this.nudPostLowGainMin = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.nudInputZ = new System.Windows.Forms.NumericUpDown();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAlpha)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostgainMidQ)).BeginInit();
@@ -99,12 +105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPregainLowcut)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudInputZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMin)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -127,6 +127,24 @@
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "DSP Distortion";
+            // 
+            // nudDSPDistortionGainMax
+            // 
+            this.nudDSPDistortionGainMax.Location = new System.Drawing.Point(126, 30);
+            this.nudDSPDistortionGainMax.Maximum = new decimal(new int[] {
+            72,
+            0,
+            0,
+            0});
+            this.nudDSPDistortionGainMax.Name = "nudDSPDistortionGainMax";
+            this.nudDSPDistortionGainMax.Size = new System.Drawing.Size(45, 20);
+            this.nudDSPDistortionGainMax.TabIndex = 11;
+            this.nudDSPDistortionGainMax.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.nudDSPDistortionGainMax.ValueChanged += new System.EventHandler(this.nudDSPDistortionGainMax_ValueChanged);
             // 
             // label18
             // 
@@ -192,7 +210,7 @@
             // 
             this.nudDSPDistortionVolume.Location = new System.Drawing.Point(73, 173);
             this.nudDSPDistortionVolume.Maximum = new decimal(new int[] {
-            0,
+            10,
             0,
             0,
             0});
@@ -228,11 +246,6 @@
             0,
             0,
             0});
-            this.nudDSPDistortionGainMin.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nudDSPDistortionGainMin.Name = "nudDSPDistortionGainMin";
             this.nudDSPDistortionGainMin.Size = new System.Drawing.Size(45, 20);
             this.nudDSPDistortionGainMin.TabIndex = 3;
@@ -241,7 +254,7 @@
             0,
             0,
             0});
-            this.nudDSPDistortionGainMin.ValueChanged += new System.EventHandler(this.nudDSPDistortionGain_ValueChanged);
+            this.nudDSPDistortionGainMin.ValueChanged += new System.EventHandler(this.nudDSPDistortionGainMin_ValueChanged);
             // 
             // label23
             // 
@@ -266,11 +279,6 @@
             0,
             0,
             0});
-            this.nudDSPDistortionAlpha.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
             this.nudDSPDistortionAlpha.Name = "nudDSPDistortionAlpha";
             this.nudDSPDistortionAlpha.Size = new System.Drawing.Size(83, 20);
             this.nudDSPDistortionAlpha.TabIndex = 1;
@@ -323,6 +331,152 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Post-gain";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(241, 30);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "dB";
+            // 
+            // nudPostLowGainMax
+            // 
+            this.nudPostLowGainMax.Location = new System.Drawing.Point(176, 28);
+            this.nudPostLowGainMax.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudPostLowGainMax.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            -2147483648});
+            this.nudPostLowGainMax.Name = "nudPostLowGainMax";
+            this.nudPostLowGainMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostLowGainMax.TabIndex = 34;
+            this.nudPostLowGainMax.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudPostLowGainMin
+            // 
+            this.nudPostLowGainMin.Location = new System.Drawing.Point(114, 29);
+            this.nudPostLowGainMin.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudPostLowGainMin.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            -2147483648});
+            this.nudPostLowGainMin.Name = "nudPostLowGainMin";
+            this.nudPostLowGainMin.Size = new System.Drawing.Size(56, 20);
+            this.nudPostLowGainMin.TabIndex = 33;
+            this.nudPostLowGainMin.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(10, 31);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 13);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Low gain:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(241, 263);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(20, 13);
+            this.label22.TabIndex = 31;
+            this.label22.Text = "Hz";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(241, 200);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(20, 13);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "dB";
+            // 
+            // nudPostHighGainMax
+            // 
+            this.nudPostHighGainMax.Location = new System.Drawing.Point(176, 198);
+            this.nudPostHighGainMax.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostHighGainMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostHighGainMax.Name = "nudPostHighGainMax";
+            this.nudPostHighGainMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostHighGainMax.TabIndex = 29;
+            this.nudPostHighGainMax.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // nudPostHighGainMin
+            // 
+            this.nudPostHighGainMin.Location = new System.Drawing.Point(114, 199);
+            this.nudPostHighGainMin.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostHighGainMin.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostHighGainMin.Name = "nudPostHighGainMin";
+            this.nudPostHighGainMin.Size = new System.Drawing.Size(56, 20);
+            this.nudPostHighGainMin.TabIndex = 28;
+            this.nudPostHighGainMin.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            // 
+            // nudPostMidGainMax
+            // 
+            this.nudPostMidGainMax.Location = new System.Drawing.Point(176, 100);
+            this.nudPostMidGainMax.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudPostMidGainMax.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudPostMidGainMax.Name = "nudPostMidGainMax";
+            this.nudPostMidGainMax.Size = new System.Drawing.Size(58, 20);
+            this.nudPostMidGainMax.TabIndex = 27;
+            this.nudPostMidGainMax.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // nudPostPresenceMax
             // 
@@ -666,13 +820,14 @@
             // 
             // tbModelName
             // 
-            this.tbModelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelName.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbModelName.Location = new System.Drawing.Point(205, 12);
             this.tbModelName.MaxLength = 8;
             this.tbModelName.Name = "tbModelName";
             this.tbModelName.Size = new System.Drawing.Size(223, 29);
             this.tbModelName.TabIndex = 15;
             this.tbModelName.Text = "FenderTw";
+            this.tbModelName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbModelName_KeyPress);
             // 
             // lbModels
             // 
@@ -696,7 +851,7 @@
             // 
             // tbModelNo
             // 
-            this.tbModelNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelNo.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbModelNo.Location = new System.Drawing.Point(141, 12);
             this.tbModelNo.MaxLength = 8;
             this.tbModelNo.Name = "tbModelNo";
@@ -716,6 +871,24 @@
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(7, 37);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 13);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Input impedance:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(185, 37);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 13);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "kOhm";
             // 
             // nudInputZ
             // 
@@ -744,192 +917,6 @@
             0,
             0});
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(185, 37);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(35, 13);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "kOhm";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(7, 37);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 13);
-            this.label20.TabIndex = 4;
-            this.label20.Text = "Input impedance:";
-            // 
-            // nudDSPDistortionGainMax
-            // 
-            this.nudDSPDistortionGainMax.Location = new System.Drawing.Point(126, 30);
-            this.nudDSPDistortionGainMax.Maximum = new decimal(new int[] {
-            72,
-            0,
-            0,
-            0});
-            this.nudDSPDistortionGainMax.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudDSPDistortionGainMax.Name = "nudDSPDistortionGainMax";
-            this.nudDSPDistortionGainMax.Size = new System.Drawing.Size(45, 20);
-            this.nudDSPDistortionGainMax.TabIndex = 11;
-            this.nudDSPDistortionGainMax.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            // 
-            // nudPostMidGainMax
-            // 
-            this.nudPostMidGainMax.Location = new System.Drawing.Point(176, 100);
-            this.nudPostMidGainMax.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPostMidGainMax.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudPostMidGainMax.Name = "nudPostMidGainMax";
-            this.nudPostMidGainMax.Size = new System.Drawing.Size(58, 20);
-            this.nudPostMidGainMax.TabIndex = 27;
-            this.nudPostMidGainMax.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // nudPostHighGainMax
-            // 
-            this.nudPostHighGainMax.Location = new System.Drawing.Point(176, 198);
-            this.nudPostHighGainMax.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPostHighGainMax.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudPostHighGainMax.Name = "nudPostHighGainMax";
-            this.nudPostHighGainMax.Size = new System.Drawing.Size(58, 20);
-            this.nudPostHighGainMax.TabIndex = 29;
-            this.nudPostHighGainMax.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // nudPostHighGainMin
-            // 
-            this.nudPostHighGainMin.Location = new System.Drawing.Point(114, 199);
-            this.nudPostHighGainMin.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPostHighGainMin.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudPostHighGainMin.Name = "nudPostHighGainMin";
-            this.nudPostHighGainMin.Size = new System.Drawing.Size(56, 20);
-            this.nudPostHighGainMin.TabIndex = 28;
-            this.nudPostHighGainMin.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(241, 200);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(20, 13);
-            this.label21.TabIndex = 30;
-            this.label21.Text = "dB";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(241, 263);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(20, 13);
-            this.label22.TabIndex = 31;
-            this.label22.Text = "Hz";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(241, 30);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 13);
-            this.label12.TabIndex = 35;
-            this.label12.Text = "dB";
-            // 
-            // nudPostLowGainMax
-            // 
-            this.nudPostLowGainMax.Location = new System.Drawing.Point(176, 28);
-            this.nudPostLowGainMax.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPostLowGainMax.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudPostLowGainMax.Name = "nudPostLowGainMax";
-            this.nudPostLowGainMax.Size = new System.Drawing.Size(58, 20);
-            this.nudPostLowGainMax.TabIndex = 34;
-            this.nudPostLowGainMax.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // nudPostLowGainMin
-            // 
-            this.nudPostLowGainMin.Location = new System.Drawing.Point(114, 29);
-            this.nudPostLowGainMin.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.nudPostLowGainMin.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudPostLowGainMin.Name = "nudPostLowGainMin";
-            this.nudPostLowGainMin.Size = new System.Drawing.Size(56, 20);
-            this.nudPostLowGainMin.TabIndex = 33;
-            this.nudPostLowGainMin.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 31);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "Low gain:";
-            // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -948,14 +935,21 @@
             this.MaximizeBox = false;
             this.Name = "frmModels";
             this.Text = "Models";
+            this.Load += new System.EventHandler(this.frmModels_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAlpha)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostPresenceMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPostgainMidQ)).EndInit();
@@ -969,12 +963,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudInputZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostMidGainMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostHighGainMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPostLowGainMin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

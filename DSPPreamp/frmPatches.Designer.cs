@@ -431,6 +431,7 @@
             this.MaximizeBox = false;
             this.Name = "frmPatches";
             this.Text = "Patches";
+            this.Load += new System.EventHandler(this.frmPatches_Load);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
