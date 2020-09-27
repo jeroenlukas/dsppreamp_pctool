@@ -73,6 +73,7 @@ namespace DSPPreamp
             public const int POSTGAIN_HIGH_GAIN_MAX = 57;
             public const int POSTGAIN_PRES_FREQ_MIN = 58;
             public const int POSTGAIN_PRES_FREQ_MAX = 59;
+            public const int POSTGAIN_PRES_ORDER = 63;
         }
 
         //public struct frame { byte command; byte length; byte[] payload; };
@@ -333,6 +334,9 @@ namespace DSPPreamp
                         break;
                     case ModelProperties.POSTGAIN_PRES_FREQ_MAX:
                         formModels.setPostPresenceFreqMax((frame_payload[1] << 8) + frame_payload[2]);
+                        break;
+                    case ModelProperties.POSTGAIN_PRES_ORDER:
+                        formModels.setPostPresenceOrder((sbyte)frame_payload[1]);
                         break;
 
                     

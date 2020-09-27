@@ -416,6 +416,27 @@ namespace DSPPreamp
             valueChangedExternally = false;
         }
 
+        public void setPostPresenceOrder(int order)
+        {
+            if (order == 0) order = 1;
+            valueChangedExternally = true;
+            if (this.cbPostPresenceOrder.InvokeRequired)
+            {
+                this.cbPostPresenceOrder.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    valueChangedExternally = true;
+                    cbPostPresenceOrder.SelectedIndex = order - 1;
+                    valueChangedExternally = false;
+                });
+            }
+            else
+            {
+                cbPostPresenceOrder.SelectedIndex = order - 1;
+            }
+            valueChangedExternally = false;
+
+        }
+
         public void setModelId(int id)
         {
             if (this.tbModelNo.InvokeRequired)
@@ -478,6 +499,30 @@ namespace DSPPreamp
             if (e.KeyChar == 13)
             {
                 MyParent.setCurrentModelValueString(Form1.ModelProperties.NAME, tbModelName.Text);
+            }
+        }
+
+        private void cbPostPresenceOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!valueChangedExternally)
+            {
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_PRES_ORDER, Convert.ToSByte(cbPostPresenceOrder.SelectedIndex + 1));
+            }
+        }
+
+        private void nudPostPresenceMin_ValueChanged(object sender, EventArgs e)
+        {
+            if(!valueChangedExternally)
+            {
+                MyParent.setCurrentModelValueInt(Form1.ModelProperties.POSTGAIN_PRES_FREQ_MIN, Convert.ToInt16(nudPostPresenceMin.Value));
+            }
+        }
+
+        private void nudPostPresenceMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+            {
+                MyParent.setCurrentModelValueInt(Form1.ModelProperties.POSTGAIN_PRES_FREQ_MAX, Convert.ToInt16(nudPostPresenceMax.Value));
             }
         }
     }

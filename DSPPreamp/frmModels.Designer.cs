@@ -83,6 +83,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.nudInputZ = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbPostPresenceOrder = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
@@ -303,6 +305,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbPostPresenceOrder);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.nudPostLowGainMax);
             this.groupBox3.Controls.Add(this.nudPostLowGainMin);
@@ -327,7 +331,7 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(776, 65);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(293, 302);
+            this.groupBox3.Size = new System.Drawing.Size(293, 342);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Post-gain";
@@ -499,6 +503,7 @@
             0,
             0,
             0});
+            this.nudPostPresenceMax.ValueChanged += new System.EventHandler(this.nudPostPresenceMax_ValueChanged);
             // 
             // label26
             // 
@@ -530,6 +535,7 @@
             0,
             0,
             0});
+            this.nudPostPresenceMin.ValueChanged += new System.EventHandler(this.nudPostPresenceMin_ValueChanged);
             // 
             // cbPostgainBypass
             // 
@@ -810,7 +816,7 @@
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(994, 373);
+            this.btnStore.Location = new System.Drawing.Point(994, 413);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(75, 23);
             this.btnStore.TabIndex = 16;
@@ -917,11 +923,34 @@
             0,
             0});
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 298);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Presence order:";
+            // 
+            // cbPostPresenceOrder
+            // 
+            this.cbPostPresenceOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPostPresenceOrder.FormattingEnabled = true;
+            this.cbPostPresenceOrder.Items.AddRange(new object[] {
+            "1st order",
+            "2nd order",
+            "3rd order"});
+            this.cbPostPresenceOrder.Location = new System.Drawing.Point(114, 289);
+            this.cbPostPresenceOrder.Name = "cbPostPresenceOrder";
+            this.cbPostPresenceOrder.Size = new System.Drawing.Size(121, 21);
+            this.cbPostPresenceOrder.TabIndex = 37;
+            this.cbPostPresenceOrder.SelectedIndexChanged += new System.EventHandler(this.cbPostPresenceOrder_SelectedIndexChanged);
+            // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 412);
+            this.ClientSize = new System.Drawing.Size(1079, 448);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tbModelNo);
             this.Controls.Add(this.btnStore);
@@ -1025,5 +1054,7 @@
         private System.Windows.Forms.NumericUpDown nudPostLowGainMax;
         private System.Windows.Forms.NumericUpDown nudPostLowGainMin;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbPostPresenceOrder;
+        private System.Windows.Forms.Label label7;
     }
 }
