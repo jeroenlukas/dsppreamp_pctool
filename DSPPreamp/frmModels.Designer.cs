@@ -42,6 +42,8 @@
             this.nudDSPDistortionAlpha = new System.Windows.Forms.NumericUpDown();
             this.cbDSPDistortionBypass = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbPostPresenceOrder = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.nudPostLowGainMax = new System.Windows.Forms.NumericUpDown();
             this.nudPostLowGainMin = new System.Windows.Forms.NumericUpDown();
@@ -83,8 +85,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.nudInputZ = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbPostPresenceOrder = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
@@ -331,10 +331,33 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(776, 65);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(293, 342);
+            this.groupBox3.Size = new System.Drawing.Size(293, 302);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Post-gain";
+            // 
+            // cbPostPresenceOrder
+            // 
+            this.cbPostPresenceOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPostPresenceOrder.FormattingEnabled = true;
+            this.cbPostPresenceOrder.Items.AddRange(new object[] {
+            "1st order",
+            "2nd order",
+            "3rd order"});
+            this.cbPostPresenceOrder.Location = new System.Drawing.Point(114, 255);
+            this.cbPostPresenceOrder.Name = "cbPostPresenceOrder";
+            this.cbPostPresenceOrder.Size = new System.Drawing.Size(121, 21);
+            this.cbPostPresenceOrder.TabIndex = 37;
+            this.cbPostPresenceOrder.SelectedIndexChanged += new System.EventHandler(this.cbPostPresenceOrder_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 258);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Presence order:";
             // 
             // label12
             // 
@@ -366,6 +389,7 @@
             0,
             0,
             0});
+            this.nudPostLowGainMax.ValueChanged += new System.EventHandler(this.nudPostLowGainMax_ValueChanged);
             // 
             // nudPostLowGainMin
             // 
@@ -388,6 +412,7 @@
             0,
             0,
             -2147483648});
+            this.nudPostLowGainMin.ValueChanged += new System.EventHandler(this.nudPostLowGainMin_ValueChanged);
             // 
             // label13
             // 
@@ -401,7 +426,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(241, 263);
+            this.label22.Location = new System.Drawing.Point(241, 229);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(20, 13);
             this.label22.TabIndex = 31;
@@ -410,7 +435,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(241, 200);
+            this.label21.Location = new System.Drawing.Point(241, 171);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(20, 13);
             this.label21.TabIndex = 30;
@@ -418,7 +443,7 @@
             // 
             // nudPostHighGainMax
             // 
-            this.nudPostHighGainMax.Location = new System.Drawing.Point(176, 198);
+            this.nudPostHighGainMax.Location = new System.Drawing.Point(176, 169);
             this.nudPostHighGainMax.Maximum = new decimal(new int[] {
             20,
             0,
@@ -437,10 +462,11 @@
             0,
             0,
             0});
+            this.nudPostHighGainMax.ValueChanged += new System.EventHandler(this.nudPostHighGainMax_ValueChanged);
             // 
             // nudPostHighGainMin
             // 
-            this.nudPostHighGainMin.Location = new System.Drawing.Point(114, 199);
+            this.nudPostHighGainMin.Location = new System.Drawing.Point(114, 169);
             this.nudPostHighGainMin.Maximum = new decimal(new int[] {
             20,
             0,
@@ -459,6 +485,7 @@
             0,
             0,
             -2147483648});
+            this.nudPostHighGainMin.ValueChanged += new System.EventHandler(this.nudPostHighGainMin_ValueChanged);
             // 
             // nudPostMidGainMax
             // 
@@ -481,10 +508,11 @@
             0,
             0,
             0});
+            this.nudPostMidGainMax.ValueChanged += new System.EventHandler(this.nudPostMidGainMax_ValueChanged);
             // 
             // nudPostPresenceMax
             // 
-            this.nudPostPresenceMax.Location = new System.Drawing.Point(176, 261);
+            this.nudPostPresenceMax.Location = new System.Drawing.Point(176, 227);
             this.nudPostPresenceMax.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -508,7 +536,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(10, 263);
+            this.label26.Location = new System.Drawing.Point(10, 229);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(85, 13);
             this.label26.TabIndex = 25;
@@ -516,7 +544,7 @@
             // 
             // nudPostPresenceMin
             // 
-            this.nudPostPresenceMin.Location = new System.Drawing.Point(114, 261);
+            this.nudPostPresenceMin.Location = new System.Drawing.Point(114, 227);
             this.nudPostPresenceMin.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -552,7 +580,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 201);
+            this.label16.Location = new System.Drawing.Point(10, 171);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 13);
             this.label16.TabIndex = 21;
@@ -626,6 +654,7 @@
             0,
             0,
             -2147483648});
+            this.nudPostMidGainMin.ValueChanged += new System.EventHandler(this.nudPostMidGainMin_ValueChanged);
             // 
             // label15
             // 
@@ -816,7 +845,7 @@
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(994, 413);
+            this.btnStore.Location = new System.Drawing.Point(994, 373);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(75, 23);
             this.btnStore.TabIndex = 16;
@@ -923,34 +952,11 @@
             0,
             0});
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 298);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "Presence order:";
-            // 
-            // cbPostPresenceOrder
-            // 
-            this.cbPostPresenceOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPostPresenceOrder.FormattingEnabled = true;
-            this.cbPostPresenceOrder.Items.AddRange(new object[] {
-            "1st order",
-            "2nd order",
-            "3rd order"});
-            this.cbPostPresenceOrder.Location = new System.Drawing.Point(114, 289);
-            this.cbPostPresenceOrder.Name = "cbPostPresenceOrder";
-            this.cbPostPresenceOrder.Size = new System.Drawing.Size(121, 21);
-            this.cbPostPresenceOrder.TabIndex = 37;
-            this.cbPostPresenceOrder.SelectedIndexChanged += new System.EventHandler(this.cbPostPresenceOrder_SelectedIndexChanged);
-            // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 448);
+            this.ClientSize = new System.Drawing.Size(1079, 408);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tbModelNo);
             this.Controls.Add(this.btnStore);

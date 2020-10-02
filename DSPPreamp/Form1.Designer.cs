@@ -36,7 +36,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelFromEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeModelToEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,13 +46,14 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.disableUSBTransmitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutgoingCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort
             // 
-            this.serialPort.BaudRate = 19200;
+            this.serialPort.BaudRate = 57600;
             this.serialPort.PortName = "COM4";
             this.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort_DataReceived);
             // 
@@ -91,12 +91,6 @@
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "&View";
-            // 
-            // windowsToolStripMenuItem
-            // 
-            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
-            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.windowsToolStripMenuItem.Text = "&Windows";
             // 
             // testToolStripMenuItem
             // 
@@ -174,6 +168,12 @@
             this.logOutgoingCommandsToolStripMenuItem.Name = "logOutgoingCommandsToolStripMenuItem";
             this.logOutgoingCommandsToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.logOutgoingCommandsToolStripMenuItem.Text = "Log outgoing commands";
+            // 
+            // windowsToolStripMenuItem
+            // 
+            this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
+            this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.windowsToolStripMenuItem.Text = "&Windows";
             // 
             // toolStrip1
             // 

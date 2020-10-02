@@ -181,7 +181,7 @@ namespace DSPPreamp
             //data[3] = Convert.ToByte(value & 0xff);
             sendCommand(Commands.SET_MODEL_VALUE, Convert.ToByte(value.Length + 2 + 1), data);
             if (logOutgoingCommandsToolStripMenuItem.Checked)
-                formLog.logMessage("Set model property " + property.ToString() + " to " + value, Color.Orange);
+                formLog.logMessage("Set model property " + property.ToString() +  " to " + value, Color.Orange);
         }
 
         public void storeCurrentModel()
@@ -249,6 +249,17 @@ namespace DSPPreamp
                 string result = System.Text.Encoding.UTF8.GetString(frame_payload) + "\0";
 
                 formLog.logMessage("[dsppreamp] " + result + "\r\n", Color.Blue);
+            }
+            if(frame_command == Commands.MIDI_RECEIVED)
+            {
+                if(frame_payload[1] == 0x0B)
+                {
+                    formLog.logMessage("[midi] [channel " + frame_payload[0].ToString() + "] CC #" + frame_payload[2].ToString() + " -> " + frame_payload[3].ToString(), Color.Green);
+                }
+                else if(frame_payload[1] == 0x0C)
+                {
+                    formLog.logMessage("[midi] [channel " + frame_payload[0].ToString() + "] PC " + frame_payload[2].ToString(), Color.Green);
+                }
             }
             if(frame_command == Commands.SET_PATCH_VALUE)
             {

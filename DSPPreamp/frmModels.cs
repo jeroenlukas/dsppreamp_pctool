@@ -525,5 +525,41 @@ namespace DSPPreamp
                 MyParent.setCurrentModelValueInt(Form1.ModelProperties.POSTGAIN_PRES_FREQ_MAX, Convert.ToInt16(nudPostPresenceMax.Value));
             }
         }
+
+        private void nudPostLowGainMin_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_LOW_GAIN_MIN, Convert.ToSByte(nudPostLowGainMin.Value));
+        }
+
+        private void nudPostLowGainMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_LOW_GAIN_MAX, Convert.ToSByte(nudPostLowGainMax.Value));
+        }
+
+        private void nudPostHighGainMin_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_HIGH_GAIN_MIN, Convert.ToSByte(nudPostHighGainMin.Value));
+        }
+
+        private void nudPostHighGainMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_HIGH_GAIN_MAX, Convert.ToSByte(nudPostHighGainMax.Value));
+        }
+
+        private void nudPostMidGainMin_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_MID_GAIN_MIN, Convert.ToSByte(nudPostMidGainMin.Value));
+        }
+
+        private void nudPostMidGainMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+                MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_MID_GAIN_MAX, Convert.ToSByte(nudPostMidGainMax.Value));
+        }
     }
 }
