@@ -85,6 +85,10 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.nudInputZ = new System.Windows.Forms.NumericUpDown();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.dlgExport = new System.Windows.Forms.SaveFileDialog();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.dlgImport = new System.Windows.Forms.OpenFileDialog();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
@@ -880,7 +884,7 @@
             "M10"});
             this.lbModels.Location = new System.Drawing.Point(12, 12);
             this.lbModels.Name = "lbModels";
-            this.lbModels.Size = new System.Drawing.Size(120, 355);
+            this.lbModels.Size = new System.Drawing.Size(120, 381);
             this.lbModels.TabIndex = 14;
             this.lbModels.SelectedIndexChanged += new System.EventHandler(this.lbModels_SelectedIndexChanged);
             // 
@@ -952,11 +956,44 @@
             0,
             0});
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(148, 373);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 40;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // dlgExport
+            // 
+            this.dlgExport.DefaultExt = "mdl";
+            this.dlgExport.FileOk += new System.ComponentModel.CancelEventHandler(this.dlgExport_FileOk);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(229, 373);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 41;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // dlgImport
+            // 
+            this.dlgImport.FileName = "dlgImport";
+            this.dlgImport.Filter = "Model files|*.mdl";
+            this.dlgImport.FileOk += new System.ComponentModel.CancelEventHandler(this.dlgImport_FileOk);
+            // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 408);
+            this.Controls.Add(this.btnImport);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tbModelNo);
             this.Controls.Add(this.btnStore);
@@ -1062,5 +1099,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbPostPresenceOrder;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.SaveFileDialog dlgExport;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.OpenFileDialog dlgImport;
     }
 }

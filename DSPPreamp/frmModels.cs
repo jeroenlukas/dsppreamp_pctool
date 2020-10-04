@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DSPPreamp
 {
@@ -560,6 +561,184 @@ namespace DSPPreamp
         {
             if (!valueChangedExternally)
                 MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_MID_GAIN_MAX, Convert.ToSByte(nudPostMidGainMax.Value));
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            dlgExport.FileName = tbModelNo.Text + "_" + tbModelName.Text;
+            dlgExport.ShowDialog();            
+        }
+
+        private void dlgExport_FileOk(object sender, CancelEventArgs e)
+        {
+            XmlWriterSettings xmlsettings = new XmlWriterSettings()
+            {
+                Indent = true,
+                IndentChars = "\t",
+                NewLineOnAttributes = true
+            };
+
+            XmlWriter xml = XmlWriter.Create(dlgExport.FileName, xmlsettings);
+
+            //cbAnalogChannel.SelectedIndex = 0;
+            //xml.Settings.NewLineOnAttributes = true;
+
+            xml.WriteStartDocument();
+            xml.WriteStartElement("model");
+
+            xml.WriteStartElement("name");
+            xml.WriteString(tbModelName.Text);
+            xml.WriteEndElement();
+
+            xml.WriteStartElement("input");
+            xml.WriteStartElement("impedance");
+            xml.WriteString(nudInputZ.Value.ToString());
+            xml.WriteEndElement();
+            xml.WriteEndElement();
+
+            xml.WriteStartElement("pregain");
+            xml.WriteStartElement("lowcut"); xml.WriteString(nudPregainLowcut.Value.ToString()); xml.WriteEndElement();
+            xml.WriteEndElement();
+
+            xml.WriteStartElement("distortion");
+            xml.WriteStartElement("gain_min"); xml.WriteString(nudDSPDistortionGainMin.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("gain_max"); xml.WriteString(nudDSPDistortionGainMax.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("alpha"); xml.WriteString(nudDSPDistortionAlpha.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("asymmetry"); xml.WriteString(nudDSPDistortionAsymmetry.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("volume"); xml.WriteString(nudDSPDistortionVolume.Value.ToString()); xml.WriteEndElement();
+            xml.WriteEndElement();
+
+            xml.WriteStartElement("analog");
+            xml.WriteStartElement("bypass"); xml.WriteString(cbAnalogBypass.Checked.ToString().ToLower()); xml.WriteEndElement();
+            xml.WriteStartElement("channel"); xml.WriteString(cbAnalogChannel.SelectedIndex.ToString()); xml.WriteEndElement();
+            xml.WriteEndElement();
+
+            xml.WriteStartElement("postgain");
+            xml.WriteStartElement("low_gain_min"); xml.WriteString(nudPostLowGainMin.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("low_gain_max"); xml.WriteString(nudPostLowGainMax.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("mid_frequency"); xml.WriteString(nudPostgainMidFreq.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("mid_q"); xml.WriteString(nudPostgainMidQ.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("mid_gain_min"); xml.WriteString(nudPostMidGainMin.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("mid_gain_max"); xml.WriteString(nudPostMidGainMax.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("high_gain_min"); xml.WriteString(nudPostHighGainMin.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("high_gain_max"); xml.WriteString(nudPostHighGainMax.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("presence_frequency_min"); xml.WriteString(nudPostPresenceMin.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("presence_frequency_max"); xml.WriteString(nudPostPresenceMax.Value.ToString()); xml.WriteEndElement();
+            xml.WriteStartElement("presence_order"); xml.WriteString(cbPostPresenceOrder.SelectedIndex.ToString()); xml.WriteEndElement();
+
+            xml.WriteEndElement();
+
+
+
+            xml.WriteEndDocument();
+            xml.Close();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            dlgImport.ShowDialog();
+        }
+
+        private void dlgImport_FileOk(object sender, CancelEventArgs e)
+        {
+            XmlReader xml = XmlReader.Create(dlgImport.FileName);
+           
+            string block = "";
+
+            while (xml.Read())
+            {
+                if (xml.NodeType == XmlNodeType.Element)
+                {
+                    switch (xml.Name)
+                    {
+                        case "input":
+                            block = "input";
+                            break;
+                        case "pregain":
+                            block = "pregain";
+                            break;
+                        case "distortion":
+                            block = "distortion";
+                            break;
+                        case "analog":
+                            block = "analog";
+                            break;
+                        case "postgain":
+                            block = "postgain";
+                            break;
+
+                        case "name":                            
+                            tbModelName.Text = xml.ReadElementContentAsString();
+                            break;
+                        case "impedance":
+                            nudInputZ.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "bypass":
+                            if (block == "analog") cbAnalogBypass.Checked = xml.ReadElementContentAsBoolean();                            
+                            break;
+                        case "lowcut":
+                            if (block == "pregain") nudPregainLowcut.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "gain_min":
+                            if (block == "distortion") nudDSPDistortionGainMin.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "gain_max":
+                            if (block == "distortion") nudDSPDistortionGainMax.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "alpha":
+                            nudDSPDistortionAlpha.Value = Convert.ToDecimal(xml.ReadElementContentAsString());
+                            break;
+                        case "asymmetry":
+                            nudDSPDistortionAsymmetry.Value = Convert.ToDecimal(xml.ReadElementContentAsString());
+                            break;
+                        case "volume":
+                            if (block == "distortion") nudDSPDistortionVolume.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "channel":
+                            cbAnalogChannel.SelectedIndex = xml.ReadElementContentAsInt();
+                            break;
+                        case "low_gain_min":
+                            nudPostLowGainMin.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "low_gain_max":
+                            nudPostLowGainMax.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "mid_frequency":
+                            nudPostgainMidFreq.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "mid_q":
+                            nudPostgainMidQ.Value = Convert.ToDecimal(xml.ReadElementContentAsString());
+                            break;
+                        case "mid_gain_min":
+                            nudPostMidGainMin.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "mid_gain_max":
+                            nudPostMidGainMax.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "high_gain_min":
+                            nudPostHighGainMin.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "high_gain_max":
+                            nudPostHighGainMax.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "presence_frequency_min":
+                            nudPostPresenceMin.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "presence_frequency_max":
+                            nudPostPresenceMax.Value = xml.ReadElementContentAsDecimal();
+                            break;
+                        case "presence_order":
+                            cbPostPresenceOrder.SelectedIndex = xml.ReadElementContentAsInt();
+                            break;
+
+
+
+                        default:
+                            break;
+
+                    }
+                }
+            }
         }
     }
 }
