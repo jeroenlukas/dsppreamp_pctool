@@ -43,6 +43,7 @@
             this.rtbLog.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbLog.Location = new System.Drawing.Point(0, 28);
             this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
             this.rtbLog.Size = new System.Drawing.Size(856, 400);
             this.rtbLog.TabIndex = 0;
             this.rtbLog.Text = "";

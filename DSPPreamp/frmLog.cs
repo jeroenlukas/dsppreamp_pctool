@@ -32,6 +32,12 @@ namespace DSPPreamp
                     rtbLog.SelectionColor = color;
                     rtbLog.AppendText("\n[" + DateTime.Now.ToString() + "] " + text );
                     rtbLog.SelectionColor = rtbLog.ForeColor;
+                    
+                    rtbLog.SelectionStart = rtbLog.TextLength;
+                    rtbLog.ScrollToCaret();
+                    rtbLog.Update();
+
+
                     ; });
             }
             else
@@ -41,6 +47,10 @@ namespace DSPPreamp
                 rtbLog.SelectionColor = color;
                 rtbLog.AppendText("\n[" + DateTime.Now.ToString() + "] " + text );
                 rtbLog.SelectionColor = rtbLog.ForeColor; ;
+                
+                rtbLog.SelectionStart = rtbLog.TextLength;
+                rtbLog.ScrollToCaret();
+                rtbLog.Update();
             }
             //rtbLog.AppendText("[" + DateTime.Now.ToString() + "] " + text + "\n");
         }
