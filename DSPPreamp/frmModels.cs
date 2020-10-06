@@ -26,11 +26,12 @@ namespace DSPPreamp
         {
             if (!valueChangedExternally)
             {
-                if (cbPostgainBypass.Checked)
-                {
-                    MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_BYPASS, 1);
-                }
-                else MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_BYPASS, 0);
+                /*    if (cbPostgainBypass.Checked)
+                    {
+                        MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_BYPASS, 1);
+                    }
+                    else MyParent.setCurrentModelValue(Form1.ModelProperties.POSTGAIN_BYPASS, 0);*/
+                setCurrentModelBypass();
             }
         }
 
@@ -38,11 +39,12 @@ namespace DSPPreamp
         {
             if (!valueChangedExternally)
             {
-                if (cbDSPDistortionBypass.Checked)
-                {
-                    MyParent.setCurrentModelValue(Form1.ModelProperties.DSPDISTORTION_BYPASS, 1);
-                }
-                else MyParent.setCurrentModelValue(Form1.ModelProperties.DSPDISTORTION_BYPASS, 0);
+                //if (cbDSPDistortionBypass.Checked)
+                //{
+                    // MyParent.setCurrentModelValue(Form1.ModelProperties.DSPDISTORTION_BYPASS, 1);
+                    setCurrentModelBypass();
+                //}
+                //else //MyParent.setCurrentModelValue(Form1.ModelProperties.DSPDISTORTION_BYPASS, 0);
             }
         }
 
@@ -67,11 +69,12 @@ namespace DSPPreamp
         {
             if (!valueChangedExternally)
             {
-                if (cbAnalogBypass.Checked)
-                {
-                    MyParent.setCurrentModelValue(Form1.ModelProperties.ANALOG_BYPASS, 1);
-                }
-                else MyParent.setCurrentModelValue(Form1.ModelProperties.ANALOG_BYPASS, 0);
+                /*    if (cbAnalogBypass.Checked)
+                    {
+                        MyParent.setCurrentModelValue(Form1.ModelProperties.BYPASS, 1);
+                    }
+                    else MyParent.setCurrentModelValue(Form1.ModelProperties.BYPASS, 0);*/
+                setCurrentModelBypass();
             }
         }
 
@@ -112,6 +115,123 @@ namespace DSPPreamp
         }
 
         /* Boring modifiers */
+
+        public void setBypassCheckboxes(sbyte bypass)
+        {
+            valueChangedExternally = true;
+            int data = bypass;
+            if((data & 8 ) > 0) // pregain
+            {
+                if (this.cbPreGainBypass.InvokeRequired)
+                {
+                    this.cbPreGainBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbPreGainBypass.Checked = true;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbPreGainBypass.Checked = true;
+            }
+            else
+            {
+                if (this.cbPreGainBypass.InvokeRequired)
+                {
+                    this.cbPreGainBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbPreGainBypass.Checked = false;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbPreGainBypass.Checked = false;
+            }
+
+            if ((data & 4) > 0) // distortion
+            {
+                if (this.cbDSPDistortionBypass.InvokeRequired)
+                {
+                    this.cbDSPDistortionBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbDSPDistortionBypass.Checked = true;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbDSPDistortionBypass.Checked = true;
+            }
+            else
+            {
+                if (this.cbDSPDistortionBypass.InvokeRequired)
+                {
+                    this.cbDSPDistortionBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbDSPDistortionBypass.Checked = false;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbDSPDistortionBypass.Checked = false;
+            }
+
+            if ((data & 2) > 0) // analog
+            {
+                if (this.cbAnalogBypass.InvokeRequired)
+                {
+                    this.cbAnalogBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbAnalogBypass.Checked = true;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbAnalogBypass.Checked = true;
+            }
+            else
+            {
+                if (this.cbAnalogBypass.InvokeRequired)
+                {
+                    this.cbAnalogBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbAnalogBypass.Checked = false;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbAnalogBypass.Checked = false;
+            }
+
+            if ((data & 1) > 0) // postgain
+            {
+                if (this.cbPostgainBypass.InvokeRequired)
+                {
+                    this.cbPostgainBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbPostgainBypass.Checked = true;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbPostgainBypass.Checked = true;
+            }
+            else
+            {
+                if (this.cbPostgainBypass.InvokeRequired)
+                {
+                    this.cbPostgainBypass.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        valueChangedExternally = true;
+                        cbPostgainBypass.Checked = false;
+                        valueChangedExternally = false;
+                    });
+                }
+                else cbPostgainBypass.Checked = false;
+            }
+
+
+
+            valueChangedExternally = false;
+        }
 
         public void setDSPDistortionGainMin(sbyte gain)
         {
@@ -639,6 +759,13 @@ namespace DSPPreamp
             dlgImport.ShowDialog();
         }
 
+        public void setCurrentModelBypass()
+        {
+            int data = (Convert.ToInt16(cbPreGainBypass.Checked) << 3) + (Convert.ToInt16(cbDSPDistortionBypass.Checked) << 2) + (Convert.ToInt16(cbAnalogBypass.Checked) << 1) + Convert.ToInt16(cbPostgainBypass.Checked);
+            sbyte bypass = (sbyte)(data & 0xFF);
+            MyParent.setCurrentModelValue(Form1.ModelProperties.BYPASS, bypass);
+        }
+
         private void dlgImport_FileOk(object sender, CancelEventArgs e)
         {
             XmlReader xml = XmlReader.Create(dlgImport.FileName);
@@ -739,6 +866,12 @@ namespace DSPPreamp
                     }
                 }
             }
+        }
+
+        private void cbPreGainBypass_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!valueChangedExternally)
+                setCurrentModelBypass();
         }
     }
 }

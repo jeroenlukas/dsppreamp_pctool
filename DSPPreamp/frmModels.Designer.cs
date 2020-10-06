@@ -42,6 +42,7 @@
             this.nudDSPDistortionAlpha = new System.Windows.Forms.NumericUpDown();
             this.cbDSPDistortionBypass = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbPostgainBypass = new System.Windows.Forms.CheckBox();
             this.cbPostPresenceOrder = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.nudPostPresenceMax = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
             this.nudPostPresenceMin = new System.Windows.Forms.NumericUpDown();
-            this.cbPostgainBypass = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.nudPostgainMidQ = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
@@ -309,6 +309,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbPostgainBypass);
             this.groupBox3.Controls.Add(this.cbPostPresenceOrder);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label12);
@@ -323,7 +324,6 @@
             this.groupBox3.Controls.Add(this.nudPostPresenceMax);
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.nudPostPresenceMin);
-            this.groupBox3.Controls.Add(this.cbPostgainBypass);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.nudPostgainMidQ);
             this.groupBox3.Controls.Add(this.label17);
@@ -340,14 +340,26 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Post-gain";
             // 
+            // cbPostgainBypass
+            // 
+            this.cbPostgainBypass.AutoSize = true;
+            this.cbPostgainBypass.BackColor = System.Drawing.SystemColors.Window;
+            this.cbPostgainBypass.Location = new System.Drawing.Point(192, 0);
+            this.cbPostgainBypass.Name = "cbPostgainBypass";
+            this.cbPostgainBypass.Size = new System.Drawing.Size(60, 17);
+            this.cbPostgainBypass.TabIndex = 23;
+            this.cbPostgainBypass.Text = "Bypass";
+            this.cbPostgainBypass.UseVisualStyleBackColor = false;
+            this.cbPostgainBypass.CheckedChanged += new System.EventHandler(this.cbPostgainBypass_CheckedChanged);
+            // 
             // cbPostPresenceOrder
             // 
             this.cbPostPresenceOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPostPresenceOrder.FormattingEnabled = true;
             this.cbPostPresenceOrder.Items.AddRange(new object[] {
-            "1st order",
-            "2nd order",
-            "3rd order"});
+            "1st order (6 dB/oct)",
+            "2nd order (12 dB/oct)",
+            "3rd order (18 dB/oct)"});
             this.cbPostPresenceOrder.Location = new System.Drawing.Point(114, 255);
             this.cbPostPresenceOrder.Name = "cbPostPresenceOrder";
             this.cbPostPresenceOrder.Size = new System.Drawing.Size(121, 21);
@@ -569,18 +581,6 @@
             0});
             this.nudPostPresenceMin.ValueChanged += new System.EventHandler(this.nudPostPresenceMin_ValueChanged);
             // 
-            // cbPostgainBypass
-            // 
-            this.cbPostgainBypass.AutoSize = true;
-            this.cbPostgainBypass.BackColor = System.Drawing.SystemColors.Window;
-            this.cbPostgainBypass.Location = new System.Drawing.Point(355, 0);
-            this.cbPostgainBypass.Name = "cbPostgainBypass";
-            this.cbPostgainBypass.Size = new System.Drawing.Size(60, 17);
-            this.cbPostgainBypass.TabIndex = 23;
-            this.cbPostgainBypass.Text = "Bypass";
-            this.cbPostgainBypass.UseVisualStyleBackColor = false;
-            this.cbPostgainBypass.CheckedChanged += new System.EventHandler(this.cbPostgainBypass_CheckedChanged);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -782,6 +782,7 @@
             this.cbPreGainBypass.TabIndex = 8;
             this.cbPreGainBypass.Text = "Bypass";
             this.cbPreGainBypass.UseVisualStyleBackColor = false;
+            this.cbPreGainBypass.CheckedChanged += new System.EventHandler(this.cbPreGainBypass_CheckedChanged);
             // 
             // comboBox3
             // 

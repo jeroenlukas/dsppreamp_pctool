@@ -59,7 +59,7 @@ namespace DSPPreamp
             public const int DSPDISTORTION_GAIN_MAX = 25;
             public const int DSPDISTORTION_ASYMMETRY = 23;
             public const int DSPDISTORTION_VOLUME = 24;
-            public const int ANALOG_BYPASS = 30;
+            public const int BYPASS = 30;
 
             public const int POSTGAIN_LOW_GAIN_MIN = 52;
             public const int POSTGAIN_LOW_GAIN_MAX = 53;
@@ -205,6 +205,7 @@ namespace DSPPreamp
             sendCommand(Commands.SELECT_PATCH, 1, data);
         }
 
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -294,7 +295,9 @@ namespace DSPPreamp
                     case ModelProperties.PREGAIN_LOWCUT:
                         formModels.setPreLowCut((frame_payload[1] << 8) + frame_payload[2]);
                         break;
-
+                    case ModelProperties.BYPASS:
+                        formModels.setBypassCheckboxes((sbyte)frame_payload[1]);
+                        break;
                     case ModelProperties.DSPDISTORTION_GAIN_MIN:
                         formModels.setDSPDistortionGainMin((sbyte)frame_payload[1]);
                         break;
