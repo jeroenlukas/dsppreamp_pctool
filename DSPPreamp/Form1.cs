@@ -51,6 +51,7 @@ namespace DSPPreamp
             public const int CHANNEL = 2;
             public const int ZINPUT = 60;
             public const int PREGAIN_LOWCUT = 40;
+            public const int PREGAIN_LOWCUT_ORDER = 41;
 
             public const int POSTGAIN_BYPASS = 19;
             public const int DSPDISTORTION_BYPASS = 20;
@@ -294,6 +295,9 @@ namespace DSPPreamp
                         break;
                     case ModelProperties.PREGAIN_LOWCUT:
                         formModels.setPreLowCut((frame_payload[1] << 8) + frame_payload[2]);
+                        break;
+                    case ModelProperties.PREGAIN_LOWCUT_ORDER:
+                        formModels.setPreLowcutOrder((sbyte)frame_payload[1]);
                         break;
                     case ModelProperties.BYPASS:
                         formModels.setBypassCheckboxes((sbyte)frame_payload[1]);

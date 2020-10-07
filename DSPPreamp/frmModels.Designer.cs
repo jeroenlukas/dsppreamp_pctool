@@ -72,7 +72,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbPreGainBypass = new System.Windows.Forms.CheckBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbPregainLowcutOrder = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.nudPregainLowcut = new System.Windows.Forms.NumericUpDown();
@@ -359,7 +359,8 @@
             this.cbPostPresenceOrder.Items.AddRange(new object[] {
             "1st order (6 dB/oct)",
             "2nd order (12 dB/oct)",
-            "3rd order (18 dB/oct)"});
+            "3rd order (18 dB/oct)",
+            "4th order (24 dB/oct)"});
             this.cbPostPresenceOrder.Location = new System.Drawing.Point(114, 255);
             this.cbPostPresenceOrder.Name = "cbPostPresenceOrder";
             this.cbPostPresenceOrder.Size = new System.Drawing.Size(121, 21);
@@ -528,6 +529,11 @@
             // 
             // nudPostPresenceMax
             // 
+            this.nudPostPresenceMax.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.nudPostPresenceMax.Location = new System.Drawing.Point(176, 227);
             this.nudPostPresenceMax.Maximum = new decimal(new int[] {
             10000,
@@ -560,6 +566,11 @@
             // 
             // nudPostPresenceMin
             // 
+            this.nudPostPresenceMin.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             this.nudPostPresenceMin.Location = new System.Drawing.Point(114, 227);
             this.nudPostPresenceMin.Maximum = new decimal(new int[] {
             10000,
@@ -760,7 +771,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbPreGainBypass);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.cbPregainLowcutOrder);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.nudPregainLowcut);
@@ -784,19 +795,20 @@
             this.cbPreGainBypass.UseVisualStyleBackColor = false;
             this.cbPreGainBypass.CheckedChanged += new System.EventHandler(this.cbPreGainBypass_CheckedChanged);
             // 
-            // comboBox3
+            // cbPregainLowcutOrder
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "2nd order",
-            "4th order",
-            "6th order",
-            "1st order"});
-            this.comboBox3.Location = new System.Drawing.Point(111, 59);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(68, 21);
-            this.comboBox3.TabIndex = 7;
+            this.cbPregainLowcutOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPregainLowcutOrder.FormattingEnabled = true;
+            this.cbPregainLowcutOrder.Items.AddRange(new object[] {
+            "1st order (6 dB/oct)",
+            "2nd order (12 dB/oct)",
+            "3rd order (18 dB/oct)",
+            "4th order (24 dB/oct)"});
+            this.cbPregainLowcutOrder.Location = new System.Drawing.Point(111, 59);
+            this.cbPregainLowcutOrder.Name = "cbPregainLowcutOrder";
+            this.cbPregainLowcutOrder.Size = new System.Drawing.Size(94, 21);
+            this.cbPregainLowcutOrder.TabIndex = 7;
+            this.cbPregainLowcutOrder.SelectedIndexChanged += new System.EventHandler(this.cbPregainLowcutOrder_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -1071,7 +1083,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbPreGainBypass;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbPregainLowcutOrder;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudPregainLowcut;

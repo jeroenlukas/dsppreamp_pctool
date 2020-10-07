@@ -558,6 +558,27 @@ namespace DSPPreamp
 
         }
 
+        public void setPreLowcutOrder(int order)
+        {
+            if (order == 0) order = 1;
+            valueChangedExternally = true;
+            if (this.cbPregainLowcutOrder.InvokeRequired)
+            {
+                this.cbPregainLowcutOrder.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    valueChangedExternally = true;
+                    cbPregainLowcutOrder.SelectedIndex = order - 1;
+                    valueChangedExternally = false;
+                });
+            }
+            else
+            {
+                cbPregainLowcutOrder.SelectedIndex = order - 1;
+            }
+            valueChangedExternally = false;
+
+        }
+
         public void setModelId(int id)
         {
             if (this.tbModelNo.InvokeRequired)
@@ -872,6 +893,14 @@ namespace DSPPreamp
         {
             if(!valueChangedExternally)
                 setCurrentModelBypass();
+        }
+
+        private void cbPregainLowcutOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!valueChangedExternally)
+            {
+                MyParent.setCurrentModelValue(Form1.ModelProperties.PREGAIN_LOWCUT_ORDER, Convert.ToSByte(cbPregainLowcutOrder.SelectedIndex + 1));
+            }            
         }
     }
 }
