@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.nudDSPDistortionGainMax = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
@@ -89,6 +90,7 @@
             this.dlgExport = new System.Windows.Forms.SaveFileDialog();
             this.btnImport = new System.Windows.Forms.Button();
             this.dlgImport = new System.Windows.Forms.OpenFileDialog();
+            this.timerTagReset = new System.Windows.Forms.Timer(this.components);
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
@@ -145,6 +147,7 @@
             this.nudDSPDistortionGainMax.Name = "nudDSPDistortionGainMax";
             this.nudDSPDistortionGainMax.Size = new System.Drawing.Size(45, 20);
             this.nudDSPDistortionGainMax.TabIndex = 11;
+            this.nudDSPDistortionGainMax.Tag = "0";
             this.nudDSPDistortionGainMax.Value = new decimal(new int[] {
             30,
             0,
@@ -178,6 +181,7 @@
             this.nudDSPDistortionAsymmetry.Name = "nudDSPDistortionAsymmetry";
             this.nudDSPDistortionAsymmetry.Size = new System.Drawing.Size(83, 20);
             this.nudDSPDistortionAsymmetry.TabIndex = 9;
+            this.nudDSPDistortionAsymmetry.Tag = "0";
             this.nudDSPDistortionAsymmetry.Value = new decimal(new int[] {
             6,
             0,
@@ -228,6 +232,7 @@
             this.nudDSPDistortionVolume.Name = "nudDSPDistortionVolume";
             this.nudDSPDistortionVolume.Size = new System.Drawing.Size(83, 20);
             this.nudDSPDistortionVolume.TabIndex = 5;
+            this.nudDSPDistortionVolume.Tag = "0";
             this.nudDSPDistortionVolume.Value = new decimal(new int[] {
             15,
             0,
@@ -255,6 +260,7 @@
             this.nudDSPDistortionGainMin.Name = "nudDSPDistortionGainMin";
             this.nudDSPDistortionGainMin.Size = new System.Drawing.Size(45, 20);
             this.nudDSPDistortionGainMin.TabIndex = 3;
+            this.nudDSPDistortionGainMin.Tag = "0";
             this.nudDSPDistortionGainMin.Value = new decimal(new int[] {
             5,
             0,
@@ -288,6 +294,7 @@
             this.nudDSPDistortionAlpha.Name = "nudDSPDistortionAlpha";
             this.nudDSPDistortionAlpha.Size = new System.Drawing.Size(83, 20);
             this.nudDSPDistortionAlpha.TabIndex = 1;
+            this.nudDSPDistortionAlpha.Tag = "0";
             this.nudDSPDistortionAlpha.Value = new decimal(new int[] {
             6,
             0,
@@ -303,6 +310,7 @@
             this.cbDSPDistortionBypass.Name = "cbDSPDistortionBypass";
             this.cbDSPDistortionBypass.Size = new System.Drawing.Size(60, 17);
             this.cbDSPDistortionBypass.TabIndex = 0;
+            this.cbDSPDistortionBypass.Tag = "0";
             this.cbDSPDistortionBypass.Text = "Bypass";
             this.cbDSPDistortionBypass.UseVisualStyleBackColor = false;
             this.cbDSPDistortionBypass.CheckedChanged += new System.EventHandler(this.cbDSPDistortionBypass_CheckedChanged);
@@ -348,6 +356,7 @@
             this.cbPostgainBypass.Name = "cbPostgainBypass";
             this.cbPostgainBypass.Size = new System.Drawing.Size(60, 17);
             this.cbPostgainBypass.TabIndex = 23;
+            this.cbPostgainBypass.Tag = "0";
             this.cbPostgainBypass.Text = "Bypass";
             this.cbPostgainBypass.UseVisualStyleBackColor = false;
             this.cbPostgainBypass.CheckedChanged += new System.EventHandler(this.cbPostgainBypass_CheckedChanged);
@@ -365,6 +374,7 @@
             this.cbPostPresenceOrder.Name = "cbPostPresenceOrder";
             this.cbPostPresenceOrder.Size = new System.Drawing.Size(121, 21);
             this.cbPostPresenceOrder.TabIndex = 37;
+            this.cbPostPresenceOrder.Tag = "0";
             this.cbPostPresenceOrder.SelectedIndexChanged += new System.EventHandler(this.cbPostPresenceOrder_SelectedIndexChanged);
             // 
             // label7
@@ -401,6 +411,7 @@
             this.nudPostLowGainMax.Name = "nudPostLowGainMax";
             this.nudPostLowGainMax.Size = new System.Drawing.Size(58, 20);
             this.nudPostLowGainMax.TabIndex = 34;
+            this.nudPostLowGainMax.Tag = "0";
             this.nudPostLowGainMax.Value = new decimal(new int[] {
             5,
             0,
@@ -424,6 +435,7 @@
             this.nudPostLowGainMin.Name = "nudPostLowGainMin";
             this.nudPostLowGainMin.Size = new System.Drawing.Size(56, 20);
             this.nudPostLowGainMin.TabIndex = 33;
+            this.nudPostLowGainMin.Tag = "0";
             this.nudPostLowGainMin.Value = new decimal(new int[] {
             10,
             0,
@@ -474,6 +486,7 @@
             this.nudPostHighGainMax.Name = "nudPostHighGainMax";
             this.nudPostHighGainMax.Size = new System.Drawing.Size(58, 20);
             this.nudPostHighGainMax.TabIndex = 29;
+            this.nudPostHighGainMax.Tag = "0";
             this.nudPostHighGainMax.Value = new decimal(new int[] {
             5,
             0,
@@ -497,6 +510,7 @@
             this.nudPostHighGainMin.Name = "nudPostHighGainMin";
             this.nudPostHighGainMin.Size = new System.Drawing.Size(56, 20);
             this.nudPostHighGainMin.TabIndex = 28;
+            this.nudPostHighGainMin.Tag = "0";
             this.nudPostHighGainMin.Value = new decimal(new int[] {
             10,
             0,
@@ -520,6 +534,7 @@
             this.nudPostMidGainMax.Name = "nudPostMidGainMax";
             this.nudPostMidGainMax.Size = new System.Drawing.Size(58, 20);
             this.nudPostMidGainMax.TabIndex = 27;
+            this.nudPostMidGainMax.Tag = "0";
             this.nudPostMidGainMax.Value = new decimal(new int[] {
             5,
             0,
@@ -548,6 +563,7 @@
             this.nudPostPresenceMax.Name = "nudPostPresenceMax";
             this.nudPostPresenceMax.Size = new System.Drawing.Size(58, 20);
             this.nudPostPresenceMax.TabIndex = 26;
+            this.nudPostPresenceMax.Tag = "0";
             this.nudPostPresenceMax.Value = new decimal(new int[] {
             4000,
             0,
@@ -585,6 +601,7 @@
             this.nudPostPresenceMin.Name = "nudPostPresenceMin";
             this.nudPostPresenceMin.Size = new System.Drawing.Size(56, 20);
             this.nudPostPresenceMin.TabIndex = 24;
+            this.nudPostPresenceMin.Tag = "0";
             this.nudPostPresenceMin.Value = new decimal(new int[] {
             4000,
             0,
@@ -623,6 +640,7 @@
             this.nudPostgainMidQ.Name = "nudPostgainMidQ";
             this.nudPostgainMidQ.Size = new System.Drawing.Size(120, 20);
             this.nudPostgainMidQ.TabIndex = 20;
+            this.nudPostgainMidQ.Tag = "0";
             this.nudPostgainMidQ.Value = new decimal(new int[] {
             2,
             0,
@@ -664,6 +682,7 @@
             this.nudPostMidGainMin.Name = "nudPostMidGainMin";
             this.nudPostMidGainMin.Size = new System.Drawing.Size(56, 20);
             this.nudPostMidGainMin.TabIndex = 17;
+            this.nudPostMidGainMin.Tag = "0";
             this.nudPostMidGainMin.Value = new decimal(new int[] {
             10,
             0,
@@ -705,6 +724,7 @@
             this.nudPostgainMidFreq.Name = "nudPostgainMidFreq";
             this.nudPostgainMidFreq.Size = new System.Drawing.Size(120, 20);
             this.nudPostgainMidFreq.TabIndex = 11;
+            this.nudPostgainMidFreq.Tag = "0";
             this.nudPostgainMidFreq.Value = new decimal(new int[] {
             400,
             0,
@@ -741,6 +761,7 @@
             this.cbAnalogBypass.Name = "cbAnalogBypass";
             this.cbAnalogBypass.Size = new System.Drawing.Size(60, 17);
             this.cbAnalogBypass.TabIndex = 8;
+            this.cbAnalogBypass.Tag = "0";
             this.cbAnalogBypass.Text = "Bypass";
             this.cbAnalogBypass.UseVisualStyleBackColor = false;
             this.cbAnalogBypass.CheckedChanged += new System.EventHandler(this.cbAnalogBypass_CheckedChanged);
@@ -758,6 +779,7 @@
             this.cbAnalogChannel.Name = "cbAnalogChannel";
             this.cbAnalogChannel.Size = new System.Drawing.Size(87, 21);
             this.cbAnalogChannel.TabIndex = 6;
+            this.cbAnalogChannel.Tag = "0";
             // 
             // label3
             // 
@@ -791,6 +813,7 @@
             this.cbPreGainBypass.Name = "cbPreGainBypass";
             this.cbPreGainBypass.Size = new System.Drawing.Size(60, 17);
             this.cbPreGainBypass.TabIndex = 8;
+            this.cbPreGainBypass.Tag = "0";
             this.cbPreGainBypass.Text = "Bypass";
             this.cbPreGainBypass.UseVisualStyleBackColor = false;
             this.cbPreGainBypass.CheckedChanged += new System.EventHandler(this.cbPreGainBypass_CheckedChanged);
@@ -808,6 +831,7 @@
             this.cbPregainLowcutOrder.Name = "cbPregainLowcutOrder";
             this.cbPregainLowcutOrder.Size = new System.Drawing.Size(94, 21);
             this.cbPregainLowcutOrder.TabIndex = 7;
+            this.cbPregainLowcutOrder.Tag = "0";
             this.cbPregainLowcutOrder.SelectedIndexChanged += new System.EventHandler(this.cbPregainLowcutOrder_SelectedIndexChanged);
             // 
             // label6
@@ -844,6 +868,7 @@
             this.nudPregainLowcut.Name = "nudPregainLowcut";
             this.nudPregainLowcut.Size = new System.Drawing.Size(68, 20);
             this.nudPregainLowcut.TabIndex = 1;
+            this.nudPregainLowcut.Tag = "0";
             this.nudPregainLowcut.Value = new decimal(new int[] {
             220,
             0,
@@ -872,12 +897,13 @@
             // 
             // tbModelName
             // 
-            this.tbModelName.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbModelName.Location = new System.Drawing.Point(205, 12);
             this.tbModelName.MaxLength = 8;
             this.tbModelName.Name = "tbModelName";
             this.tbModelName.Size = new System.Drawing.Size(223, 29);
             this.tbModelName.TabIndex = 15;
+            this.tbModelName.Tag = "0";
             this.tbModelName.Text = "FenderTw";
             this.tbModelName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbModelName_KeyPress);
             // 
@@ -903,7 +929,7 @@
             // 
             // tbModelNo
             // 
-            this.tbModelNo.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbModelNo.Location = new System.Drawing.Point(141, 12);
             this.tbModelNo.MaxLength = 8;
             this.tbModelNo.Name = "tbModelNo";
@@ -963,6 +989,7 @@
             this.nudInputZ.Name = "nudInputZ";
             this.nudInputZ.Size = new System.Drawing.Size(68, 20);
             this.nudInputZ.TabIndex = 2;
+            this.nudInputZ.Tag = "0";
             this.nudInputZ.Value = new decimal(new int[] {
             500,
             0,
@@ -999,6 +1026,12 @@
             this.dlgImport.FileName = "dlgImport";
             this.dlgImport.Filter = "Model files|*.mdl";
             this.dlgImport.FileOk += new System.ComponentModel.CancelEventHandler(this.dlgImport_FileOk);
+            // 
+            // timerTagReset
+            // 
+            this.timerTagReset.Enabled = true;
+            this.timerTagReset.Interval = 200;
+            this.timerTagReset.Tick += new System.EventHandler(this.timerTagReset_Tick);
             // 
             // frmModels
             // 
@@ -1116,5 +1149,6 @@
         private System.Windows.Forms.SaveFileDialog dlgExport;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.OpenFileDialog dlgImport;
+        private System.Windows.Forms.Timer timerTagReset;
     }
 }

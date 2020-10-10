@@ -185,6 +185,14 @@ namespace DSPPreamp
                 formLog.logMessage("Set model property " + property.ToString() +  " to " + value, Color.Orange);
         }
 
+        public void getModelValue(byte model_id, byte property)
+        {
+            byte[] data = new byte[4];
+            data[0] = model_id;
+            data[1] = property;            
+            sendCommand(Commands.GET_MODEL_VALUE, 2, data);            
+        }
+
         public void storeCurrentModel()
         {
             byte[] data = new byte[1];
@@ -201,6 +209,7 @@ namespace DSPPreamp
 
         public void selectPatch(byte patch_no)
         {
+            //formLog.logMessage("Changing to patch " + patch_no.ToString(), Color.Aqua);
             byte[] data = new byte[1];
             data[0] = patch_no;
             sendCommand(Commands.SELECT_PATCH, 1, data);
@@ -287,79 +296,92 @@ namespace DSPPreamp
             }
             if (frame_command == Commands.SET_MODEL_VALUE)
             {
-                switch (frame_payload[0])
+                if (frame_payload[0] == 0xFF)
                 {
-                    case ModelProperties.NAME:
-                        string modelName = System.Text.Encoding.UTF8.GetString(frame_payload, 1, 9) + "\0";
-                        formModels.setModelName(modelName);
-                        break;
-                    case ModelProperties.PREGAIN_LOWCUT:
-                        formModels.setPreLowCut((frame_payload[1] << 8) + frame_payload[2]);
-                        break;
-                    case ModelProperties.PREGAIN_LOWCUT_ORDER:
-                        formModels.setPreLowcutOrder((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.BYPASS:
-                        formModels.setBypassCheckboxes((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.DSPDISTORTION_GAIN_MIN:
-                        formModels.setDSPDistortionGainMin((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.DSPDISTORTION_GAIN_MAX:
-                        formModels.setDSPDistortionGainMax((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.DSPDISTORTION_ALPHA:
-                        formModels.setDSPDistortionAlpha((decimal)frame_payload[1] / 10);
-                        break;
-                    case ModelProperties.DSPDISTORTION_ASYMMETRY:
-                        formModels.setDSPDistortionAsymmetry((decimal)frame_payload[1] / 100);
-                        break;
-                    case ModelProperties.DSPDISTORTION_VOLUME:
-                        formModels.setDSPDistortionVolume((sbyte)frame_payload[1]);
-                        break;
+                    switch (frame_payload[1])
+                    {
+                        case ModelProperties.NAME:
+                            string modelName = System.Text.Encoding.UTF8.GetString(frame_payload, 2, 9) + "\0";
+                            formModels.setModelName(modelName);
+                            break;
+                        case ModelProperties.PREGAIN_LOWCUT:
+                            formModels.setPreLowCut((frame_payload[2] << 8) + frame_payload[3]);
+                            break;
+                        case ModelProperties.PREGAIN_LOWCUT_ORDER:
+                            formModels.setPreLowcutOrder((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.BYPASS:
+                            formModels.setBypassCheckboxes((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.DSPDISTORTION_GAIN_MIN:
+                            formModels.setDSPDistortionGainMin((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.DSPDISTORTION_GAIN_MAX:
+                            formModels.setDSPDistortionGainMax((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.DSPDISTORTION_ALPHA:
+                            formModels.setDSPDistortionAlpha((decimal)frame_payload[2] / 10);
+                            break;
+                        case ModelProperties.DSPDISTORTION_ASYMMETRY:
+                            formModels.setDSPDistortionAsymmetry((decimal)frame_payload[2] / 100);
+                            break;
+                        case ModelProperties.DSPDISTORTION_VOLUME:
+                            formModels.setDSPDistortionVolume((sbyte)frame_payload[2]);
+                            break;
 
-                    case ModelProperties.POSTGAIN_LOW_GAIN_MIN:
-                        formModels.setPostLowGainMin((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.POSTGAIN_LOW_GAIN_MAX:
-                        formModels.setPostLowGainMax((sbyte)frame_payload[1]);
-                        break;
+                        case ModelProperties.POSTGAIN_LOW_GAIN_MIN:
+                            formModels.setPostLowGainMin((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.POSTGAIN_LOW_GAIN_MAX:
+                            formModels.setPostLowGainMax((sbyte)frame_payload[2]);
+                            break;
 
-                    case ModelProperties.POSTGAIN_MID_FREQ:
-                        formModels.setPostMidFreq((frame_payload[1] << 8) + frame_payload[2]);
-                        break;
+                        case ModelProperties.POSTGAIN_MID_FREQ:
+                            formModels.setPostMidFreq((frame_payload[2] << 8) + frame_payload[3]);
+                            break;
 
-                    case ModelProperties.POSTGAIN_MID_Q:
-                        formModels.setPostMidQ((decimal)frame_payload[1]/10);
-                        break;
-                    case ModelProperties.POSTGAIN_MID_GAIN_MIN:
-                        formModels.setPostMidGainMin((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.POSTGAIN_MID_GAIN_MAX:
-                        formModels.setPostMidGainMax((sbyte)frame_payload[1]);
-                        break;
+                        case ModelProperties.POSTGAIN_MID_Q:
+                            formModels.setPostMidQ((decimal)frame_payload[2] / 10);
+                            break;
+                        case ModelProperties.POSTGAIN_MID_GAIN_MIN:
+                            formModels.setPostMidGainMin((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.POSTGAIN_MID_GAIN_MAX:
+                            formModels.setPostMidGainMax((sbyte)frame_payload[2]);
+                            break;
 
 
-                    case ModelProperties.POSTGAIN_HIGH_GAIN_MIN:
-                        formModels.setPostHighGainMin((sbyte)frame_payload[1]);
-                        break;
-                    case ModelProperties.POSTGAIN_HIGH_GAIN_MAX:
-                        formModels.setPostHighGainMax((sbyte)frame_payload[1]);
-                        break;
+                        case ModelProperties.POSTGAIN_HIGH_GAIN_MIN:
+                            formModels.setPostHighGainMin((sbyte)frame_payload[2]);
+                            break;
+                        case ModelProperties.POSTGAIN_HIGH_GAIN_MAX:
+                            formModels.setPostHighGainMax((sbyte)frame_payload[2]);
+                            break;
 
-                    case ModelProperties.POSTGAIN_PRES_FREQ_MIN:
-                        formModels.setPostPresenceFreqMin((frame_payload[1] << 8) + frame_payload[2]);
-                        break;
-                    case ModelProperties.POSTGAIN_PRES_FREQ_MAX:
-                        formModels.setPostPresenceFreqMax((frame_payload[1] << 8) + frame_payload[2]);
-                        break;
-                    case ModelProperties.POSTGAIN_PRES_ORDER:
-                        formModels.setPostPresenceOrder((sbyte)frame_payload[1]);
-                        break;
+                        case ModelProperties.POSTGAIN_PRES_FREQ_MIN:
+                            formModels.setPostPresenceFreqMin((frame_payload[2] << 8) + frame_payload[3]);
+                            break;
+                        case ModelProperties.POSTGAIN_PRES_FREQ_MAX:
+                            formModels.setPostPresenceFreqMax((frame_payload[2] << 8) + frame_payload[3]);
+                            break;
+                        case ModelProperties.POSTGAIN_PRES_ORDER:
+                            formModels.setPostPresenceOrder((sbyte)frame_payload[2]);
+                            break;
 
-                    
-                        
-                    
+
+                    }
+
+                }
+                else
+                {
+                    switch (frame_payload[1])
+                    {
+                        case ModelProperties.NAME:
+                            string modelName = System.Text.Encoding.UTF8.GetString(frame_payload, 2, 9) + "\0";
+                            formModels.setModelNameInList(frame_payload[0], modelName);
+                            formPatches.setModelNameInList(frame_payload[0], modelName);
+                            break;
+                    }
                 }
             }
 
@@ -443,6 +465,18 @@ namespace DSPPreamp
             data[0] = 0xBB;
 
             sendCommand(Commands.INITIALIZE_MODELS, 1, data);
+        }
+
+        public void getModelNames()
+        {
+            for (byte i = 0; i < 10; i++)
+                getModelValue(i, ModelProperties.NAME);
+                
+        }
+
+        private void fetchModelNamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            getModelNames();
         }
     }
 }

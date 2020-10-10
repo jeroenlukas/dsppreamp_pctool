@@ -48,6 +48,7 @@
             this.logOutgoingCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.fetchModelNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,8 @@
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadModelFromEEPROMToolStripMenuItem,
-            this.storeModelToEEPROMToolStripMenuItem});
+            this.storeModelToEEPROMToolStripMenuItem,
+            this.fetchModelNamesToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.testToolStripMenuItem.Text = "&Test";
@@ -183,6 +185,13 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // fetchModelNamesToolStripMenuItem
+            // 
+            this.fetchModelNamesToolStripMenuItem.Name = "fetchModelNamesToolStripMenuItem";
+            this.fetchModelNamesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.fetchModelNamesToolStripMenuItem.Text = "Fetch model names";
+            this.fetchModelNamesToolStripMenuItem.Click += new System.EventHandler(this.fetchModelNamesToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +234,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem disableUSBTransmitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutgoingCommandsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fetchModelNamesToolStripMenuItem;
     }
 }
 
