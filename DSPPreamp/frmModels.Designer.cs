@@ -81,7 +81,6 @@
             this.btnStore = new System.Windows.Forms.Button();
             this.tbModelName = new System.Windows.Forms.TextBox();
             this.lbModels = new System.Windows.Forms.ListBox();
-            this.tbModelNo = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -91,6 +90,9 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.dlgImport = new System.Windows.Forms.OpenFileDialog();
             this.timerTagReset = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tbModelNo = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionGainMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDSPDistortionAsymmetry)).BeginInit();
@@ -113,6 +115,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPregainLowcut)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudInputZ)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -129,7 +133,7 @@
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.nudDSPDistortionAlpha);
             this.groupBox4.Controls.Add(this.cbDSPDistortionBypass);
-            this.groupBox4.Location = new System.Drawing.Point(370, 61);
+            this.groupBox4.Location = new System.Drawing.Point(392, 65);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(207, 199);
             this.groupBox4.TabIndex = 13;
@@ -305,8 +309,8 @@
             // cbDSPDistortionBypass
             // 
             this.cbDSPDistortionBypass.AutoSize = true;
-            this.cbDSPDistortionBypass.BackColor = System.Drawing.SystemColors.Window;
-            this.cbDSPDistortionBypass.Location = new System.Drawing.Point(111, 0);
+            this.cbDSPDistortionBypass.BackColor = System.Drawing.SystemColors.Control;
+            this.cbDSPDistortionBypass.Location = new System.Drawing.Point(141, 0);
             this.cbDSPDistortionBypass.Name = "cbDSPDistortionBypass";
             this.cbDSPDistortionBypass.Size = new System.Drawing.Size(60, 17);
             this.cbDSPDistortionBypass.TabIndex = 0;
@@ -351,8 +355,8 @@
             // cbPostgainBypass
             // 
             this.cbPostgainBypass.AutoSize = true;
-            this.cbPostgainBypass.BackColor = System.Drawing.SystemColors.Window;
-            this.cbPostgainBypass.Location = new System.Drawing.Point(192, 0);
+            this.cbPostgainBypass.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPostgainBypass.Location = new System.Drawing.Point(227, 0);
             this.cbPostgainBypass.Name = "cbPostgainBypass";
             this.cbPostgainBypass.Size = new System.Drawing.Size(60, 17);
             this.cbPostgainBypass.TabIndex = 23;
@@ -746,9 +750,9 @@
             this.groupBox2.Controls.Add(this.cbAnalogBypass);
             this.groupBox2.Controls.Add(this.cbAnalogChannel);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(583, 65);
+            this.groupBox2.Location = new System.Drawing.Point(605, 65);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(187, 100);
+            this.groupBox2.Size = new System.Drawing.Size(165, 100);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Analog channel";
@@ -756,8 +760,8 @@
             // cbAnalogBypass
             // 
             this.cbAnalogBypass.AutoSize = true;
-            this.cbAnalogBypass.BackColor = System.Drawing.SystemColors.Window;
-            this.cbAnalogBypass.Location = new System.Drawing.Point(108, 0);
+            this.cbAnalogBypass.BackColor = System.Drawing.SystemColors.Control;
+            this.cbAnalogBypass.Location = new System.Drawing.Point(99, 0);
             this.cbAnalogBypass.Name = "cbAnalogBypass";
             this.cbAnalogBypass.Size = new System.Drawing.Size(60, 17);
             this.cbAnalogBypass.TabIndex = 8;
@@ -775,7 +779,7 @@
             "Channel 2",
             "Channel 3",
             "Channel 4"});
-            this.cbAnalogChannel.Location = new System.Drawing.Point(81, 29);
+            this.cbAnalogChannel.Location = new System.Drawing.Point(62, 29);
             this.cbAnalogChannel.Name = "cbAnalogChannel";
             this.cbAnalogChannel.Size = new System.Drawing.Size(87, 21);
             this.cbAnalogChannel.TabIndex = 6;
@@ -798,9 +802,9 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.nudPregainLowcut);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(141, 61);
+            this.groupBox1.Location = new System.Drawing.Point(141, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(223, 100);
+            this.groupBox1.Size = new System.Drawing.Size(245, 100);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pre-gain";
@@ -808,8 +812,8 @@
             // cbPreGainBypass
             // 
             this.cbPreGainBypass.AutoSize = true;
-            this.cbPreGainBypass.BackColor = System.Drawing.SystemColors.Window;
-            this.cbPreGainBypass.Location = new System.Drawing.Point(145, 0);
+            this.cbPreGainBypass.BackColor = System.Drawing.SystemColors.Control;
+            this.cbPreGainBypass.Location = new System.Drawing.Point(179, 0);
             this.cbPreGainBypass.Name = "cbPreGainBypass";
             this.cbPreGainBypass.Size = new System.Drawing.Size(60, 17);
             this.cbPreGainBypass.TabIndex = 8;
@@ -829,7 +833,7 @@
             "4th order (24 dB/oct)"});
             this.cbPregainLowcutOrder.Location = new System.Drawing.Point(111, 59);
             this.cbPregainLowcutOrder.Name = "cbPregainLowcutOrder";
-            this.cbPregainLowcutOrder.Size = new System.Drawing.Size(94, 21);
+            this.cbPregainLowcutOrder.Size = new System.Drawing.Size(112, 21);
             this.cbPregainLowcutOrder.TabIndex = 7;
             this.cbPregainLowcutOrder.Tag = "0";
             this.cbPregainLowcutOrder.SelectedIndexChanged += new System.EventHandler(this.cbPregainLowcutOrder_SelectedIndexChanged);
@@ -897,11 +901,13 @@
             // 
             // tbModelName
             // 
-            this.tbModelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbModelName.Location = new System.Drawing.Point(205, 12);
+            this.tbModelName.BackColor = System.Drawing.Color.GreenYellow;
+            this.tbModelName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbModelName.Font = new System.Drawing.Font("LCDDot TR", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelName.Location = new System.Drawing.Point(5, 5);
             this.tbModelName.MaxLength = 8;
             this.tbModelName.Name = "tbModelName";
-            this.tbModelName.Size = new System.Drawing.Size(223, 29);
+            this.tbModelName.Size = new System.Drawing.Size(223, 27);
             this.tbModelName.TabIndex = 15;
             this.tbModelName.Tag = "0";
             this.tbModelName.Text = "FenderTw";
@@ -927,25 +933,14 @@
             this.lbModels.TabIndex = 14;
             this.lbModels.SelectedIndexChanged += new System.EventHandler(this.lbModels_SelectedIndexChanged);
             // 
-            // tbModelNo
-            // 
-            this.tbModelNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbModelNo.Location = new System.Drawing.Point(141, 12);
-            this.tbModelNo.MaxLength = 8;
-            this.tbModelNo.Name = "tbModelNo";
-            this.tbModelNo.ReadOnly = true;
-            this.tbModelNo.Size = new System.Drawing.Size(58, 29);
-            this.tbModelNo.TabIndex = 38;
-            this.tbModelNo.Text = "001";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.nudInputZ);
-            this.groupBox5.Location = new System.Drawing.Point(141, 194);
+            this.groupBox5.Location = new System.Drawing.Point(141, 173);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(223, 100);
+            this.groupBox5.Size = new System.Drawing.Size(245, 91);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Input";
@@ -1033,17 +1028,50 @@
             this.timerTagReset.Interval = 200;
             this.timerTagReset.Tick += new System.EventHandler(this.timerTagReset_Tick);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.GreenYellow;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.tbModelNo);
+            this.panel2.Location = new System.Drawing.Point(141, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(69, 37);
+            this.panel2.TabIndex = 42;
+            // 
+            // tbModelNo
+            // 
+            this.tbModelNo.BackColor = System.Drawing.Color.GreenYellow;
+            this.tbModelNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbModelNo.Font = new System.Drawing.Font("LCDDot TR", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbModelNo.Location = new System.Drawing.Point(5, 5);
+            this.tbModelNo.MaxLength = 8;
+            this.tbModelNo.Name = "tbModelNo";
+            this.tbModelNo.ReadOnly = true;
+            this.tbModelNo.Size = new System.Drawing.Size(58, 27);
+            this.tbModelNo.TabIndex = 39;
+            this.tbModelNo.Text = "001";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.GreenYellow;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tbModelName);
+            this.panel1.Location = new System.Drawing.Point(216, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(193, 37);
+            this.panel1.TabIndex = 43;
+            // 
             // frmModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 408);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.tbModelNo);
             this.Controls.Add(this.btnStore);
-            this.Controls.Add(this.tbModelName);
             this.Controls.Add(this.lbModels);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -1081,8 +1109,11 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudInputZ)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1128,7 +1159,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nudDSPDistortionAsymmetry;
-        private System.Windows.Forms.TextBox tbModelNo;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -1150,5 +1180,8 @@
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.OpenFileDialog dlgImport;
         private System.Windows.Forms.Timer timerTagReset;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox tbModelNo;
+        private System.Windows.Forms.Panel panel1;
     }
 }

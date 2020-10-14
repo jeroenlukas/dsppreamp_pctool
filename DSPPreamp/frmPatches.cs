@@ -142,6 +142,21 @@ namespace DSPPreamp
             
         }
 
+        public void setPatchNameInList(int patch_id, string name)
+        {
+            if (this.lbPatches.InvokeRequired)
+            {
+                this.lbPatches.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    lbPatches.Items[patch_id] = "P" + (patch_id + 1).ToString().PadLeft(3, '0') + ": " + name;
+                });
+            }
+            else
+            {
+                lbPatches.Items[patch_id] = "P" + (patch_id + 1).ToString().PadLeft(3, '0') + ": " + name;
+            }
+        }
+
         public void setModelNameInList(int model_id, string name)
         {
             if (this.cbModel.InvokeRequired)
@@ -199,7 +214,7 @@ namespace DSPPreamp
         {
             if(e.KeyChar == 13)
             {
-                MyParent.setCurrentPatchValueString(Form1.PatchProperties.PATCH_NAME, tbName.Text);
+                MyParent.setCurrentPatchValueString(Form1.PatchProperties.NAME, tbName.Text);
             }
 
         }
@@ -224,6 +239,11 @@ namespace DSPPreamp
             {
                 cbModel.Items.Add("M" + (i + 1).ToString().PadLeft(2, '0'));
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

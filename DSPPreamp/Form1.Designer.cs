@@ -33,12 +33,14 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.serialPort = new System.IO.Ports.SerialPort(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelFromEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeModelToEEPROMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fetchModelNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +50,8 @@
             this.logOutgoingCommandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.fetchModelNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fetchPatchNamesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +63,20 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblConnectionStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 753);
             this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.statusStrip1.Size = new System.Drawing.Size(1364, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblConnectionStatus
+            // 
+            this.lblConnectionStatus.Name = "lblConnectionStatus";
+            this.lblConnectionStatus.Size = new System.Drawing.Size(52, 17);
+            this.lblConnectionStatus.Text = "OFFLINE";
             // 
             // menuStrip1
             // 
@@ -98,7 +110,8 @@
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadModelFromEEPROMToolStripMenuItem,
             this.storeModelToEEPROMToolStripMenuItem,
-            this.fetchModelNamesToolStripMenuItem});
+            this.fetchModelNamesToolStripMenuItem,
+            this.fetchPatchNamesToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.testToolStripMenuItem.Text = "&Test";
@@ -115,6 +128,13 @@
             this.storeModelToEEPROMToolStripMenuItem.Name = "storeModelToEEPROMToolStripMenuItem";
             this.storeModelToEEPROMToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.storeModelToEEPROMToolStripMenuItem.Text = "Store Model to EEPROM...";
+            // 
+            // fetchModelNamesToolStripMenuItem
+            // 
+            this.fetchModelNamesToolStripMenuItem.Name = "fetchModelNamesToolStripMenuItem";
+            this.fetchModelNamesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.fetchModelNamesToolStripMenuItem.Text = "Fetch model names";
+            this.fetchModelNamesToolStripMenuItem.Click += new System.EventHandler(this.fetchModelNamesToolStripMenuItem_Click);
             // 
             // systemToolStripMenuItem
             // 
@@ -185,12 +205,12 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // fetchModelNamesToolStripMenuItem
+            // fetchPatchNamesToolStripMenuItem
             // 
-            this.fetchModelNamesToolStripMenuItem.Name = "fetchModelNamesToolStripMenuItem";
-            this.fetchModelNamesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.fetchModelNamesToolStripMenuItem.Text = "Fetch model names";
-            this.fetchModelNamesToolStripMenuItem.Click += new System.EventHandler(this.fetchModelNamesToolStripMenuItem_Click);
+            this.fetchPatchNamesToolStripMenuItem.Name = "fetchPatchNamesToolStripMenuItem";
+            this.fetchPatchNamesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.fetchPatchNamesToolStripMenuItem.Text = "Fetch patch names";
+            this.fetchPatchNamesToolStripMenuItem.Click += new System.EventHandler(this.fetchPatchNamesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -208,6 +228,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -235,6 +257,8 @@
         private System.Windows.Forms.ToolStripMenuItem disableUSBTransmitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutgoingCommandsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fetchModelNamesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel lblConnectionStatus;
+        private System.Windows.Forms.ToolStripMenuItem fetchPatchNamesToolStripMenuItem;
     }
 }
 

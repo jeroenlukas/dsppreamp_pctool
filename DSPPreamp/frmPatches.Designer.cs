@@ -47,12 +47,16 @@
             this.btnGoToModel = new System.Windows.Forms.Button();
             this.cbModel = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.lbPatches = new System.Windows.Forms.ListBox();
             this.tbPatchNo = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // knobGain
@@ -240,7 +244,7 @@
             // 
             this.groupBox7.Controls.Add(this.label22);
             this.groupBox7.Controls.Add(this.knobVolume);
-            this.groupBox7.Location = new System.Drawing.Point(884, 76);
+            this.groupBox7.Location = new System.Drawing.Point(884, 86);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(153, 208);
             this.groupBox7.TabIndex = 30;
@@ -260,7 +264,7 @@
             // 
             this.groupBox6.Controls.Add(this.label2);
             this.groupBox6.Controls.Add(this.knobGain);
-            this.groupBox6.Location = new System.Drawing.Point(141, 76);
+            this.groupBox6.Location = new System.Drawing.Point(141, 86);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(155, 208);
             this.groupBox6.TabIndex = 29;
@@ -286,7 +290,7 @@
             this.groupBox5.Controls.Add(this.knobHigh);
             this.groupBox5.Controls.Add(this.knobLow);
             this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Location = new System.Drawing.Point(302, 76);
+            this.groupBox5.Location = new System.Drawing.Point(302, 86);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(576, 208);
             this.groupBox5.TabIndex = 28;
@@ -344,7 +348,7 @@
             // 
             // btnGoToModel
             // 
-            this.btnGoToModel.Location = new System.Drawing.Point(332, 47);
+            this.btnGoToModel.Location = new System.Drawing.Point(337, 60);
             this.btnGoToModel.Name = "btnGoToModel";
             this.btnGoToModel.Size = new System.Drawing.Size(24, 23);
             this.btnGoToModel.TabIndex = 33;
@@ -359,7 +363,7 @@
             "M02 Test",
             "M03 Ha",
             "M04 Boogie"});
-            this.cbModel.Location = new System.Drawing.Point(205, 49);
+            this.cbModel.Location = new System.Drawing.Point(210, 62);
             this.cbModel.Name = "cbModel";
             this.cbModel.Size = new System.Drawing.Size(121, 21);
             this.cbModel.TabIndex = 32;
@@ -368,22 +372,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(150, 52);
+            this.label1.Location = new System.Drawing.Point(151, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 31;
             this.label1.Text = "Model:";
-            // 
-            // tbName
-            // 
-            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(205, 12);
-            this.tbName.MaxLength = 8;
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(223, 29);
-            this.tbName.TabIndex = 35;
-            this.tbName.Text = "Dly Solo";
-            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbPatches
             // 
@@ -403,23 +397,58 @@
             // 
             // tbPatchNo
             // 
-            this.tbPatchNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPatchNo.Location = new System.Drawing.Point(141, 12);
+            this.tbPatchNo.BackColor = System.Drawing.Color.GreenYellow;
+            this.tbPatchNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPatchNo.Font = new System.Drawing.Font("LCDDot TR", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPatchNo.Location = new System.Drawing.Point(5, 5);
             this.tbPatchNo.MaxLength = 8;
             this.tbPatchNo.Name = "tbPatchNo";
             this.tbPatchNo.ReadOnly = true;
-            this.tbPatchNo.Size = new System.Drawing.Size(58, 29);
+            this.tbPatchNo.Size = new System.Drawing.Size(63, 27);
             this.tbPatchNo.TabIndex = 37;
             this.tbPatchNo.Text = "001";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.GreenYellow;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.tbName);
+            this.panel1.Location = new System.Drawing.Point(229, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(193, 37);
+            this.panel1.TabIndex = 38;
+            // 
+            // tbName
+            // 
+            this.tbName.BackColor = System.Drawing.Color.GreenYellow;
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbName.Font = new System.Drawing.Font("LCDDot TR", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Location = new System.Drawing.Point(5, 5);
+            this.tbName.MaxLength = 8;
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(185, 27);
+            this.tbName.TabIndex = 36;
+            this.tbName.Text = "Dly Solo";
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.GreenYellow;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.tbPatchNo);
+            this.panel2.Location = new System.Drawing.Point(154, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(69, 37);
+            this.panel2.TabIndex = 39;
             // 
             // frmPatches
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 375);
-            this.Controls.Add(this.tbPatchNo);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbPatches);
-            this.Controls.Add(this.tbName);
             this.Controls.Add(this.btnStore);
             this.Controls.Add(this.btnGoToModel);
             this.Controls.Add(this.cbModel);
@@ -438,6 +467,10 @@
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,8 +497,10 @@
         private System.Windows.Forms.Button btnGoToModel;
         private System.Windows.Forms.ComboBox cbModel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.ListBox lbPatches;
         private System.Windows.Forms.TextBox tbPatchNo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Panel panel2;
     }
 }

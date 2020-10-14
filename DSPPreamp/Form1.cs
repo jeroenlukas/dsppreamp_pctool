@@ -7,12 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace DSPPreamp
 {
     public partial class Form1 : Form
     {
         public enum stateMachine { Idle, Header, Command, Length, Payload, Done };
+
+        static System.Threading.Timer timerHeartbeatReset;
+
+        public bool online = false;
+        //public System.Threading.Timer tmrHeartbeat
+
+
 
         static class Commands
         {
@@ -27,6 +35,7 @@ namespace DSPPreamp
 
             public const int LOG_MESSAGE = 9;
             public const int SELECT_PATCH = 10;
+            public const int HEARTBEAT = 11;
 
             public const int INITIALIZE_PATCHES = 124;
             public const int INITIALIZE_MODELS = 125;
@@ -34,7 +43,7 @@ namespace DSPPreamp
 
         public static class PatchProperties
         {
-            public const int PATCH_NAME = 1;
+            public const int NAME = 1;
             public const int MODEL = 2;
             public const int GAIN = 3;
             public const int LOW = 4;
@@ -193,6 +202,14 @@ namespace DSPPreamp
             sendCommand(Commands.GET_MODEL_VALUE, 2, data);            
         }
 
+        public void getPatchValue(byte patch_id, byte property)
+        {
+            byte[] data = new byte[4];
+            data[0] = patch_id;
+            data[1] = property;
+            sendCommand(Commands.GET_PATCH_VALUE, 2, data);
+        }
+
         public void storeCurrentModel()
         {
             byte[] data = new byte[1];
@@ -233,9 +250,13 @@ namespace DSPPreamp
             formPatches.MyParent = this;
             formPatches.Show();
 
-            
-            
-            
+
+            timerHeartbeatReset = new System.Threading.Timer(
+                new TimerCallback(tickHeartbeatReset),
+                null,
+                1000,
+                2000);
+
             formLog.logMessage("dspPreamp", Color.Black);
 
             serialPort.Open();
@@ -272,28 +293,56 @@ namespace DSPPreamp
                     formLog.logMessage("[midi] [channel " + frame_payload[0].ToString() + "] PC " + frame_payload[2].ToString(), Color.Green);
                 }
             }
-            if(frame_command == Commands.SET_PATCH_VALUE)
+            if (frame_command == Commands.SET_PATCH_VALUE)
             {
-                if(frame_payload[0] == PatchProperties.PATCH_NAME)
+                if (frame_payload[0] == 0xFF)
                 {
-                    string patchName = System.Text.Encoding.UTF8.GetString(frame_payload, 1, 9) + "\0";
-                    
-                    formPatches.setName(patchName);
-                }
-                else if(frame_payload[0] == PatchProperties.MODEL)
-                {
-                    formPatches.setModel(frame_payload[1]);
-                    formModels.setModelId(frame_payload[1]);
+                    if (frame_payload[1] == PatchProperties.NAME)
+                    {
+                        string patchName = System.Text.Encoding.UTF8.GetString(frame_payload, 2, 9) + "\0";
+
+                        formPatches.setName(patchName);
+                    }
+                    else if (frame_payload[1] == PatchProperties.MODEL)
+                    {
+                        formPatches.setModel(frame_payload[2]);
+                        formModels.setModelId(frame_payload[2]);
+                    }
+                    else
+                    {
+                        formPatches.setKnob(frame_payload[1], frame_payload[2]);
+                    }
                 }
                 else
-                {                    
-                    formPatches.setKnob(frame_payload[0], frame_payload[1]);
+                {
+                    switch (frame_payload[1])
+                    {
+                        case PatchProperties.NAME:
+                            string patchName = System.Text.Encoding.UTF8.GetString(frame_payload, 2, 9) + "\0";                            
+                            formPatches.setPatchNameInList(frame_payload[0], patchName);
+                            break;
+                    }
                 }
             }
             if(frame_command == Commands.SELECT_PATCH)
             {
                 formPatches.selectPatch(frame_payload[0]);
             }
+            if(frame_command == Commands.HEARTBEAT)
+            {
+                // Reset timer
+                timerHeartbeatReset.Change(2000, 2000);
+
+                if (!online)
+                {
+                    online = true;
+                    lblConnectionStatus.Text = "CONNECTED";
+                    formLog.logMessage("dspPreamp connected", Color.Green);
+                    getModelNames();
+                    getPatchNames();
+                }
+            }
+
             if (frame_command == Commands.SET_MODEL_VALUE)
             {
                 if (frame_payload[0] == 0xFF)
@@ -470,13 +519,42 @@ namespace DSPPreamp
         public void getModelNames()
         {
             for (byte i = 0; i < 10; i++)
+            {
                 getModelValue(i, ModelProperties.NAME);
-                
+                Thread.Sleep(5);
+            }                
+        }
+
+        public void getPatchNames()
+        {
+            for (byte i = 0; i < 100; i++)
+            {
+                getPatchValue(i, PatchProperties.NAME);
+                Thread.Sleep(5);
+            }
+
         }
 
         private void fetchModelNamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             getModelNames();
+        }
+
+     
+
+        private void tickHeartbeatReset(object state)
+        {            
+            if(online)
+            {
+                online = false;
+                lblConnectionStatus.Text = "OFFLINE";
+                formLog.logMessage("dspPreamp offline", Color.Red);
+            }            
+        }
+
+        private void fetchPatchNamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            getPatchNames();
         }
     }
 }
