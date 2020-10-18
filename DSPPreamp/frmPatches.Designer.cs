@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPatches));
             this.knobGain = new KnobControl.KnobControl();
             this.knobLow = new KnobControl.KnobControl();
             this.knobMid = new KnobControl.KnobControl();
@@ -52,22 +54,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.timerTagReset = new System.Windows.Forms.Timer(this.components);
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // knobGain
             // 
-            this.knobGain.BackColor = System.Drawing.Color.White;
+            this.knobGain.BackColor = System.Drawing.SystemColors.Control;
             this.knobGain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.knobGain.EndAngle = 405F;
             this.knobGain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knobGain.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.knobGain.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.knobGain.KnobBackColor = System.Drawing.Color.Gray;
+            this.knobGain.KnobBackColor = System.Drawing.Color.Silver;
             this.knobGain.KnobPointerStyle = KnobControl.KnobControl.KnobPointerStyles.line;
             this.knobGain.LargeChange = 5;
             this.knobGain.Location = new System.Drawing.Point(13, 19);
@@ -92,7 +97,7 @@
             // 
             // knobLow
             // 
-            this.knobLow.BackColor = System.Drawing.Color.White;
+            this.knobLow.BackColor = System.Drawing.SystemColors.Control;
             this.knobLow.EndAngle = 405F;
             this.knobLow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knobLow.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -122,7 +127,7 @@
             // 
             // knobMid
             // 
-            this.knobMid.BackColor = System.Drawing.Color.White;
+            this.knobMid.BackColor = System.Drawing.SystemColors.Control;
             this.knobMid.EndAngle = 405F;
             this.knobMid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knobMid.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -152,7 +157,7 @@
             // 
             // knobPresence
             // 
-            this.knobPresence.BackColor = System.Drawing.Color.White;
+            this.knobPresence.BackColor = System.Drawing.SystemColors.Control;
             this.knobPresence.EndAngle = 405F;
             this.knobPresence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knobPresence.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -182,7 +187,7 @@
             // 
             // knobHigh
             // 
-            this.knobHigh.BackColor = System.Drawing.Color.White;
+            this.knobHigh.BackColor = System.Drawing.SystemColors.Control;
             this.knobHigh.EndAngle = 405F;
             this.knobHigh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knobHigh.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -212,12 +217,12 @@
             // 
             // knobVolume
             // 
-            this.knobVolume.BackColor = System.Drawing.Color.White;
+            this.knobVolume.BackColor = System.Drawing.SystemColors.Control;
             this.knobVolume.EndAngle = 405F;
             this.knobVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.knobVolume.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.knobVolume.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.knobVolume.KnobBackColor = System.Drawing.Color.Gray;
+            this.knobVolume.KnobBackColor = System.Drawing.Color.Silver;
             this.knobVolume.KnobPointerStyle = KnobControl.KnobControl.KnobPointerStyles.line;
             this.knobVolume.LargeChange = 5;
             this.knobVolume.Location = new System.Drawing.Point(6, 19);
@@ -282,6 +287,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.label18);
@@ -441,6 +447,12 @@
             this.panel2.Size = new System.Drawing.Size(69, 37);
             this.panel2.TabIndex = 39;
             // 
+            // timerTagReset
+            // 
+            this.timerTagReset.Enabled = true;
+            this.timerTagReset.Interval = 200;
+            this.timerTagReset.Tick += new System.EventHandler(this.timerTagReset_Tick);
+            // 
             // frmPatches
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,7 +468,8 @@
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmPatches";
             this.Text = "Patches";
@@ -471,6 +484,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,5 +516,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Timer timerTagReset;
     }
 }

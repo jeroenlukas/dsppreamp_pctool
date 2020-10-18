@@ -40,11 +40,12 @@
             this.rtbLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbLog.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.rtbLog.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbLog.Location = new System.Drawing.Point(0, 28);
             this.rtbLog.Name = "rtbLog";
             this.rtbLog.ReadOnly = true;
-            this.rtbLog.Size = new System.Drawing.Size(856, 400);
+            this.rtbLog.Size = new System.Drawing.Size(1074, 400);
             this.rtbLog.TabIndex = 0;
             this.rtbLog.Text = "";
             this.rtbLog.TextChanged += new System.EventHandler(this.rtbLog_TextChanged);
@@ -55,7 +56,7 @@
             this.btnClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(856, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1074, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -73,11 +74,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 428);
+            this.ClientSize = new System.Drawing.Size(1074, 428);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.rtbLog);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLog";
-            this.ShowIcon = false;
             this.Text = "Log";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

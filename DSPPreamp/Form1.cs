@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Xml;
 
 namespace DSPPreamp
 {
@@ -20,6 +21,15 @@ namespace DSPPreamp
         public bool online = false;
         //public System.Threading.Timer tmrHeartbeat
 
+        public class ProgramPreferences
+        {
+            public ProgramPreferences()
+            {
+                ConnectOnStartup = false;
+            }
+            public bool ConnectOnStartup { get; set; }
+            public string DefaultComPort { get; set; }
+        }
 
 
         static class Commands
@@ -91,7 +101,12 @@ namespace DSPPreamp
         frmLog formLog;
         frmModels formModels;
         frmPatches formPatches;
+        frmPreferences formPreferences;
         stateMachine smComm = stateMachine.Idle;
+
+        public ProgramPreferences prefrences = new ProgramPreferences();
+
+        string appDir = System.IO.Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]);
 
         //public frame received_frame = new frame();
         byte frame_command = 0;
@@ -99,7 +114,59 @@ namespace DSPPreamp
         byte[] frame_payload = new byte[128];
         byte receive_header_count = 0;
         byte receive_length_left = 0;
-        
+
+
+        public void LoadPreferences()
+        {
+            XmlReader xml = XmlReader.Create(appDir + "\\preferences.xml");           
+
+            while (xml.Read())
+            {
+                if (xml.NodeType == XmlNodeType.Element)
+                {
+                    switch (xml.Name)
+                    {
+                        case "connectonstartup":
+                            prefrences.ConnectOnStartup = xml.ReadElementContentAsBoolean();
+                            break;
+
+                        case "defaultcomport":
+                            prefrences.DefaultComPort = xml.ReadElementContentAsString();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            xml.Close();
+        }
+
+        public void SavePreferences()
+        {
+            XmlWriterSettings xmlsettings = new XmlWriterSettings()
+            {
+                Indent = true,
+                IndentChars = "\t",
+                NewLineOnAttributes = true
+            };
+
+            XmlWriter xml = XmlWriter.Create(appDir + "\\preferences.xml", xmlsettings);
+
+            xml.WriteStartDocument();
+            xml.WriteStartElement("preferences");
+
+            xml.WriteStartElement("communication");
+            xml.WriteStartElement("connectonstartup"); xml.WriteString(prefrences.ConnectOnStartup.ToString().ToLower()); xml.WriteEndElement();
+            xml.WriteStartElement("defaultcomport"); xml.WriteString(prefrences.DefaultComPort); xml.WriteEndElement();
+
+            xml.WriteEndElement();
+            xml.WriteEndElement();
+            xml.WriteEndDocument();
+
+            xml.Close();
+
+        }
 
         public Form1()
         {
@@ -120,7 +187,7 @@ namespace DSPPreamp
                 data[5 + a] = payload[a];
             }
 
-            if (!disableUSBTransmitToolStripMenuItem.Checked)
+            if (!disableOutgoingCommandsToolStripMenuItem.Checked)
             {
                 serialPort.Write(data, 0, 5 + length);
             }
@@ -133,7 +200,7 @@ namespace DSPPreamp
             data[1] = property;
             data[2] = value;
             sendCommand(Commands.SET_PATCH_VALUE, 3, data);
-            if(logOutgoingCommandsToolStripMenuItem.Checked)
+            if(logOutgoingCommandsToolStripMenuItem1.Checked)
                 formLog.logMessage("Set patch property " + property.ToString() + " to " + value.ToString(), Color.Orange);
         }
 
@@ -144,7 +211,7 @@ namespace DSPPreamp
             data[1] = property;
             data[2] = (byte)value; // should be two bytes
             sendCommand(Commands.SET_MODEL_VALUE, 3, data);
-            if (logOutgoingCommandsToolStripMenuItem.Checked)
+            if (logOutgoingCommandsToolStripMenuItem1.Checked)
                 formLog.logMessage("Set model property " + property.ToString() + " to " + value.ToString(), Color.Orange);
         }
 
@@ -156,7 +223,7 @@ namespace DSPPreamp
             data[2] = Convert.ToByte((value >> 8) & 0xff); // should be two bytes
             data[3] = Convert.ToByte(value & 0xff);
             sendCommand(Commands.SET_MODEL_VALUE, 4, data);
-            if (logOutgoingCommandsToolStripMenuItem.Checked)
+            if (logOutgoingCommandsToolStripMenuItem1.Checked)
                 formLog.logMessage("Set model property " + property.ToString() + " to " + value.ToString(), Color.Orange);
         }
 
@@ -173,7 +240,7 @@ namespace DSPPreamp
             //data[2] = Convert.ToByte((value >> 8) & 0xff); // should be two bytes
             //data[3] = Convert.ToByte(value & 0xff);
             sendCommand(Commands.SET_PATCH_VALUE,  Convert.ToByte(value.Length + 2 + 1), data);
-            if (logOutgoingCommandsToolStripMenuItem.Checked)
+            if (logOutgoingCommandsToolStripMenuItem1.Checked)
                 formLog.logMessage("Set patch property " + property.ToString() + " to " + value, Color.Orange);
         }
 
@@ -190,7 +257,7 @@ namespace DSPPreamp
             //data[2] = Convert.ToByte((value >> 8) & 0xff); // should be two bytes
             //data[3] = Convert.ToByte(value & 0xff);
             sendCommand(Commands.SET_MODEL_VALUE, Convert.ToByte(value.Length + 2 + 1), data);
-            if (logOutgoingCommandsToolStripMenuItem.Checked)
+            if (logOutgoingCommandsToolStripMenuItem1.Checked)
                 formLog.logMessage("Set model property " + property.ToString() +  " to " + value, Color.Orange);
         }
 
@@ -236,9 +303,7 @@ namespace DSPPreamp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            formLog = new frmLog();
-            formLog.MdiParent = this;
-            formLog.Show();
+            
 
             formModels = new frmModels();
             formModels.MdiParent = this;
@@ -250,6 +315,10 @@ namespace DSPPreamp
             formPatches.MyParent = this;
             formPatches.Show();
 
+            formLog = new frmLog();
+            formLog.MdiParent = this;
+            formLog.Show();
+
 
             timerHeartbeatReset = new System.Threading.Timer(
                 new TimerCallback(tickHeartbeatReset),
@@ -257,14 +326,33 @@ namespace DSPPreamp
                 1000,
                 2000);
 
-            formLog.logMessage("dspPreamp", Color.Black);
+            formLog.logMessage("AppDir: " + appDir, Color.Black);
 
-            serialPort.Open();
+            string[] ports = System.IO.Ports.SerialPort.GetPortNames();
 
-            if(serialPort.IsOpen)
+            foreach (string port in ports)
             {
-                formLog.logMessage("Opened COM port " + serialPort.PortName, Color.Black);
+                ToolStripItem tsi = ddComPorts.DropDownItems.Add(port);
+                tsi.Tag = port;
+                
+                tsi.Click += cOM1ToolStripMenuItem_Click;
             }
+
+            LoadPreferences();
+
+            if(prefrences.ConnectOnStartup)
+            {
+                if(ports.Contains(prefrences.DefaultComPort))
+                {
+                    serialPort.PortName = prefrences.DefaultComPort;
+                    serialPort.Open();
+
+                    if (serialPort.IsOpen)
+                    {
+                        formLog.logMessage("Opened COM port " + serialPort.PortName, Color.Black);
+                    }
+                }
+            }               
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -337,6 +425,10 @@ namespace DSPPreamp
                 {
                     online = true;
                     lblConnectionStatus.Text = "CONNECTED";
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        lblConnectionStatus.ForeColor = Color.Green;
+                    });
                     formLog.logMessage("dspPreamp connected", Color.Green);
                     getModelNames();
                     getPatchNames();
@@ -493,18 +585,18 @@ namespace DSPPreamp
             
         }
 
-        private void loadModelFromEEPROMToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void patchesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Are you sure?
             byte[] data = new byte[1];
-            data[0] = 0xAF;          
-            
-            sendCommand(Commands.INITIALIZE_PATCHES, 1, data);
+            data[0] = 0xAF;
+
+            if (MessageBox.Show("Are you sure?", "Confirm patch initialization", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                sendCommand(Commands.INITIALIZE_PATCHES, 1, data);
+            }
         }
 
         private void modelsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -513,7 +605,10 @@ namespace DSPPreamp
             byte[] data = new byte[1];
             data[0] = 0xBB;
 
-            sendCommand(Commands.INITIALIZE_MODELS, 1, data);
+            if (MessageBox.Show("Are you sure?", "Confirm model initialization", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                sendCommand(Commands.INITIALIZE_MODELS, 1, data);
+            }
         }
 
         public void getModelNames()
@@ -549,12 +644,64 @@ namespace DSPPreamp
                 online = false;
                 lblConnectionStatus.Text = "OFFLINE";
                 formLog.logMessage("dspPreamp offline", Color.Red);
+
+                this.Invoke((MethodInvoker) delegate
+                {
+                    lblConnectionStatus.ForeColor = Color.Red;
+                });
             }            
         }
 
         private void fetchPatchNamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             getPatchNames();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cOM1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string port = (sender as ToolStripItem).Tag.ToString();
+
+            formLog.logMessage("Connect to " + port, Color.Black);
+
+
+            if(serialPort.IsOpen)
+            {
+                serialPort.Close();
+            }
+
+            serialPort.PortName = port;
+            serialPort.Open();
+
+            if (serialPort.IsOpen)
+                (sender as ToolStripItem).Select();
+
+
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formPreferences = new frmPreferences();
+            
+            
+            formPreferences.MyParent = this;
+            formPreferences.Show();
+        }
+
+        private void ddComPorts_DropDownOpened(object sender, EventArgs e)
+        {
+            foreach(ToolStripMenuItem item in ddComPorts.DropDownItems)
+            {
+                if ((item.Tag.ToString() == serialPort.PortName) && (serialPort.IsOpen))
+                {
+                    item.Checked = true;
+                }
+                else item.Checked = false;
+            }
         }
     }
 }

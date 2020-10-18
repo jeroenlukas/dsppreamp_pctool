@@ -148,11 +148,13 @@ namespace DSPPreamp
             {
                 this.lbPatches.BeginInvoke((MethodInvoker)delegate ()
                 {
+                    lbPatches.Tag = 1;
                     lbPatches.Items[patch_id] = "P" + (patch_id + 1).ToString().PadLeft(3, '0') + ": " + name;
                 });
             }
             else
             {
+                lbPatches.Tag = 1;
                 lbPatches.Items[patch_id] = "P" + (patch_id + 1).ToString().PadLeft(3, '0') + ": " + name;
             }
         }
@@ -244,6 +246,18 @@ namespace DSPPreamp
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timerTagReset_Tick(object sender, EventArgs e)
+        {
+            lbPatches.Tag = 0;
+            cbModel.Tag = 0;
+            knobGain.Tag = 0;
+            knobLow.Tag = 0;
+            knobMid.Tag = 0;
+            knobHigh.Tag = 0;
+            knobPresence.Tag = 0;
+            knobVolume.Tag = 0;
         }
     }
 }

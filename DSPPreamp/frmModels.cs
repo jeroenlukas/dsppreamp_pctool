@@ -91,7 +91,11 @@ namespace DSPPreamp
 
         private void lbModels_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // tbModelNo.Text = (lbModels.SelectedIndex + 1).ToString().PadLeft(2, '0');
+            // tbModelNo.Text = (lbModels.SelectedIndex + 1).ToString().PadLeft(2, '0');
+
+            if (Convert.ToInt16(lbModels.Tag) != 1)
+                MyParent.setCurrentPatchValue(Form1.PatchProperties.MODEL, (byte)lbModels.SelectedIndex);
+            lbModels.Tag = 0;
         }
 
         private void btnStore_Click(object sender, EventArgs e)
@@ -926,6 +930,8 @@ namespace DSPPreamp
                     }
                 }
             }
+
+            xml.Close();
         }
 
         private void cbPreGainBypass_CheckedChanged(object sender, EventArgs e)
@@ -947,6 +953,8 @@ namespace DSPPreamp
 
         private void timerTagReset_Tick(object sender, EventArgs e)
         {
+            lbModels.Tag = 0;
+
             cbPreGainBypass.Tag = 0;
             cbPregainLowcutOrder.Tag = 0;
             nudPregainLowcut.Tag = 0;
